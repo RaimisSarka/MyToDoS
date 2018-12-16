@@ -1,0 +1,566 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/base_constraint_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorAppBacground"
+    tools:context=".LoadMonthActivity">
+
+    <FrameLayout
+        android:id="@+id/frameLayoutDateView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/constraintLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <FrameLayout
+                android:id="@+id/frameLayoutPreviousMonth"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:id="@+id/textViewPreviousMonth"
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/layout_borders"
+                    android:gravity="center"
+                    android:paddingBottom="5dp"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp"
+                    android:paddingTop="5dp"
+                    android:text="@string/textViewPreviousMonth"
+                    tools:text="@string/textViewPreviousMonth" />
+            </FrameLayout>
+
+            <TextView
+                android:id="@+id/textViewCurrentMonth"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:fontFamily="sans-serif"
+                android:padding="2dp"
+                android:textSize="18sp"
+                android:textStyle="bold|italic"
+                app:layout_constraintBottom_toBottomOf="@+id/frameLayoutPreviousMonth"
+                app:layout_constraintEnd_toStartOf="@+id/frameLayoutNextMonth"
+                app:layout_constraintStart_toEndOf="@+id/frameLayoutPreviousMonth"
+                app:layout_constraintTop_toTopOf="@+id/frameLayoutPreviousMonth"
+                tools:text="@string/textViewCurrentDate" />
+
+            <FrameLayout
+                android:id="@+id/frameLayoutNextMonth"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginTop="8dp"
+                android:padding="0dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:id="@+id/textViewNextMonth"
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/layout_borders"
+                    android:gravity="center"
+                    android:paddingBottom="5dp"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp"
+                    android:paddingTop="5dp"
+                    android:text="@string/textViewNextMonth"
+                    tools:text="@string/textViewNextMonth" />
+            </FrameLayout>
+
+        </android.support.constraint.ConstraintLayout>
+
+    </FrameLayout>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:background="@drawable/layout_borders"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/frameLayoutDateView">
+
+        <LinearLayout
+            android:id="@+id/linearLayoutSquaresRow1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="4dp"
+            android:orientation="horizontal"
+            android:paddingEnd="8dp"
+            android:paddingLeft="0dp"
+            android:paddingRight="8dp"
+            android:paddingStart="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/imageViewSquere1"
+                style="@style/ImageViewLandscape"
+                android:contentDescription="@string/square1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/imageViewSquere2"
+                style="@style/ImageViewLandscape"
+                android:contentDescription="@string/square2"
+                app:layout_constraintStart_toEndOf="@+id/imageViewSquere1"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/imageViewSquere3"
+                style="@style/ImageViewLandscape"
+                android:contentDescription="@string/square3"
+                app:layout_constraintStart_toEndOf="@+id/imageViewSquere1"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/day1" />
+
+            <ImageView
+                android:id="@+id/imageViewSquere4"
+                style="@style/ImageViewLandscape"
+                android:contentDescription="@string/square4"
+                app:layout_constraintStart_toEndOf="@+id/imageViewSquere1"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/day2" />
+
+            <ImageView
+                android:id="@+id/imageViewSquere5"
+                style="@style/ImageViewLandscape"
+                android:contentDescription="@string/square5"
+                app:layout_constraintStart_toEndOf="@+id/imageViewSquere1"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/day3" />
+
+            <ImageView
+                android:id="@+id/imageViewSquere6"
+                style="@style/ImageViewLandscape"
+                android:contentDescription="@string/square6"
+                app:layout_constraintStart_toEndOf="@+id/imageViewSquere1"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/day4" />
+
+            <ImageView
+                android:id="@+id/imageViewSquere7"
+                style="@style/ImageViewLandscape"
+                android:contentDescription="@string/square7"
+                app:layout_constraintStart_toEndOf="@+id/imageViewSquere1"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/day5" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayoutSquaresRow2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="4dp"
+            android:orientation="horizontal"
+            android:paddingEnd="8dp"
+            android:paddingLeft="0dp"
+            android:paddingRight="8dp"
+            android:paddingStart="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayoutSquaresRow1">
+
+            <ImageView
+                android:id="@+id/imageViewSquere8"
+                style="@style/ImageViewLandscape"
+                android:contentDescription="@string/square8"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/day6" />
+
+            <ImageView
+                android:id="@+id/imageViewSquere9"
+                style="@style/ImageViewLandscape"
+                android:contentDescription="@string/square9"
+                app:layout_constraintStart_toEndOf="@+id/imageViewSquere1"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/day7" />
+
+            <ImageView
+                android:id="@+id/imageViewSquere10"
+                style="@style/ImageViewLandscape"
+                android:contentDescription="@string/square10"
+                app:layout_constraintStart_toEndOf="@+id/imageViewSquere1"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/day8" />
+
+            <ImageView
+                android:id="@+id/imageViewSquere11"
+                style="@style/ImageViewLandscape"
+                android:contentDescription="@string/square11"
+                app:layout_constraintStart_toEndOf="@+id/imageViewSquere1"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/day9" />
+
+            <ImageView
+                android:id="@+id/imageViewSquere12"
+                style="@style/ImageViewLandscape"
+                android:contentDescription="@string/square12"
+                app:layout_constraintStart_toEndOf="@+id/imageViewSquere1"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/day10" />
+
+            <ImageView
+                android:id="@+id/imageViewSquere13"
+                style="@style/ImageViewLandscape"
+                android:contentDescription="@string/square13"
+                app:layout_constraintStart_toEndOf="@+id/imageViewSquere1"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/day11" />
+
+            <ImageView
+                android:id="@+id/imageViewSquere14"
+                style="@style/ImageViewLandscape"
+                android:contentDescription="@string/square14"
+                app:layout_constraintStart_toEndOf="@+id/imageViewSquere1"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/day12" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayoutSquaresRow3"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="4dp"
+            android:orientation="horizontal"
+            android:paddingEnd="8dp"
+            android:paddingLeft="0dp"
+            android:paddingRight="8dp"
+            android:paddingStart="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayoutSquaresRow2">
+
+            <ImageView
+                android:id="@+id/imageViewSquere15"
+                style="@style/ImageViewLandscape"
+                android:contentDescription="@string/square15"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/day13" />
+
+            <ImageView
+                android:id="@+id/imageViewSquere16"
+                style="@style/ImageViewLandscape"
+                android:contentDescription="@string/square16"
+                app:layout_constraintStart_toEndOf="@+id/imageViewSquere1"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/day14" />
+
+            <ImageView
+                android:id="@+id/imageViewSquere17"
+                style="@style/ImageViewLandscape"
+                android:contentDescription="@string/square17"
+                app:layout_constraintStart_toEndOf="@+id/imageViewSquere1"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/day15" />
+
+            <ImageView
+                android:id="@+id/imageViewSquere18"
+                style="@style/ImageViewLandscape"
+                android:contentDescription="@string/square18"
+                app:layout_constraintStart_toEndOf="@+id/imageViewSquere1"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/day16" />
+
+            <ImageView
+                android:id="@+id/imageViewSquere19"
+                style="@style/ImageViewLandscape"
+                android:contentDescription="@string/square19"
+                app:layout_constraintStart_toEndOf="@+id/imageViewSquere1"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/day17" />
+
+            <ImageView
+                android:id="@+id/imageViewSquere20"
+                style="@style/ImageViewLandscape"
+                android:contentDescription="@string/square20"
+                app:layout_constraintStart_toEndOf="@+id/imageViewSquere1"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/day18" />
+
+            <ImageView
+                android:id="@+id/imageViewSquere21"
+                style="@style/ImageViewLandscape"
+                android:contentDescription="@string/square21"
+                app:layout_constraintStart_toEndOf="@+id/imageViewSquere1"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/day19" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayoutSquaresRow4"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="4dp"
+            android:orientation="horizontal"
+            android:paddingEnd="8dp"
+            android:paddingLeft="0dp"
+            android:paddingRight="8dp"
+            android:paddingStart="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayoutSquaresRow3">
+
+            <ImageView
+                android:id="@+id/imageViewSquere22"
+                style="@style/ImageViewLandscape"
+                android:contentDescription="@string/square22"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/day20" />
+
+            <ImageView
+                android:id="@+id/imageViewSquere23"
+                style="@style/ImageViewLandscape"
+                android:contentDescription="@string/square23"
+                app:layout_constraintStart_toEndOf="@+id/imageViewSquere1"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/day21" />
+
+            <ImageView
+                android:id="@+id/imageViewSquere24"
+                style="@style/ImageViewLandscape"
+                android:contentDescription="@string/square24"
+                app:layout_constraintStart_toEndOf="@+id/imageViewSquere1"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/day24" />
+
+            <ImageView
+                android:id="@+id/imageViewSquere25"
+                style="@style/ImageViewLandscape"
+                android:contentDescription="@string/square25"
+                app:layout_constraintStart_toEndOf="@+id/imageViewSquere1"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/day25" />
+
+            <ImageView
+                android:id="@+id/imageViewSquere26"
+                style="@style/ImageViewLandscape"
+                android:contentDescription="@string/square26"
+                app:layout_constraintStart_toEndOf="@+id/imageViewSquere1"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/day26" />
+
+            <ImageView
+                android:id="@+id/imageViewSquere27"
+                style="@style/ImageViewLandscape"
+                android:contentDescription="@string/square27"
+                app:layout_constraintStart_toEndOf="@+id/imageViewSquere1"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/day27" />
+
+            <ImageView
+                android:id="@+id/imageViewSquere28"
+                style="@style/ImageViewLandscape"
+                android:contentDescription="@string/square28"
+                app:layout_constraintStart_toEndOf="@+id/imageViewSquere1"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/day28" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayoutSquaresRow5"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="4dp"
+            android:orientation="horizontal"
+            android:paddingEnd="8dp"
+            android:paddingLeft="0dp"
+            android:paddingRight="8dp"
+            android:paddingStart="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayoutSquaresRow4">
+
+            <ImageView
+                android:id="@+id/imageViewSquere29"
+                style="@style/ImageViewLandscape"
+                android:contentDescription="@string/square29"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/day29" />
+
+            <ImageView
+                android:id="@+id/imageViewSquere30"
+                style="@style/ImageViewLandscape"
+                android:contentDescription="@string/square30"
+                app:layout_constraintStart_toEndOf="@+id/imageViewSquere1"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/day30" />
+
+            <ImageView
+                android:id="@+id/imageViewSquere31"
+                style="@style/ImageViewLandscape"
+                android:contentDescription="@string/square31"
+                app:layout_constraintStart_toEndOf="@+id/imageViewSquere1"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/day31" />
+
+            <ImageView
+                android:id="@+id/imageViewSquere32"
+                style="@style/ImageViewLandscape"
+                android:contentDescription="@string/square32"
+                app:layout_constraintStart_toEndOf="@+id/imageViewSquere1"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/imageViewSquere33"
+                style="@style/ImageViewLandscape"
+                android:contentDescription="@string/square33"
+                app:layout_constraintStart_toEndOf="@+id/imageViewSquere1"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/imageViewSquere34"
+                style="@style/ImageViewLandscape"
+                android:contentDescription="@string/square34"
+                app:layout_constraintStart_toEndOf="@+id/imageViewSquere1"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/imageViewSquere35"
+                style="@style/ImageViewLandscape"
+                android:contentDescription="@string/square35"
+                app:layout_constraintStart_toEndOf="@+id/imageViewSquere1"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayoutSquaresRow6"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="4dp"
+            android:orientation="horizontal"
+            android:paddingEnd="8dp"
+            android:paddingLeft="0dp"
+            android:paddingRight="8dp"
+            android:paddingStart="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayoutSquaresRow5">
+
+            <ImageView
+                android:id="@+id/imageViewSquere36"
+                style="@style/ImageViewLandscape"
+                android:contentDescription="@string/square36"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/imageViewSquere37"
+                style="@style/ImageViewLandscape"
+                android:contentDescription="@string/square37"
+                app:layout_constraintStart_toEndOf="@+id/imageViewSquere1"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/imageViewSquere38"
+                style="@style/ImageViewLandscape"
+                android:contentDescription="@string/square38"
+                app:layout_constraintStart_toEndOf="@+id/imageViewSquere1"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/imageViewSquere39"
+                style="@style/ImageViewLandscape"
+                android:contentDescription="@string/square39"
+                app:layout_constraintStart_toEndOf="@+id/imageViewSquere1"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/imageViewSquere40"
+                style="@style/ImageViewLandscape"
+                android:contentDescription="@string/square40"
+                app:layout_constraintStart_toEndOf="@+id/imageViewSquere1"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/imageViewSquere41"
+                style="@style/ImageViewLandscape"
+                android:contentDescription="@string/square41"
+                app:layout_constraintStart_toEndOf="@+id/imageViewSquere1"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/imageViewSquere42"
+                style="@style/ImageViewLandscape"
+                android:contentDescription="@string/square42"
+                app:layout_constraintStart_toEndOf="@+id/imageViewSquere1"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </LinearLayout>
+
+    </android.support.constraint.ConstraintLayout>
+
+</android.support.constraint.ConstraintLayout>

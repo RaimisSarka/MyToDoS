@@ -1,0 +1,63 @@
+<resources>
+    <string name="app_name">MyToDoS</string>
+    <string name="title_activity_start_logo"></string>
+    <string name="title_activity_load_month"></string>
+    <string name="title_activity_add_to_do"></string>
+
+    //Date format
+    <string name="date_format">%1$d/%2$d/%3$d</string>
+
+    <string name="channel_name">ToDos channel</string>
+    <string name="channel_description">ToDos</string>
+
+    //Month squares
+    <string name="square1">square1</string>
+    <string name="square2">square2</string>
+    <string name="square3">square3</string>
+    <string name="square4">square4</string>
+    <string name="square5">square5</string>
+    <string name="square6">square6</string>
+    <string name="square7">square7</string>
+    <string name="square8">square8</string>
+    <string name="square9">square9</string>
+    <string name="square10">square10</string>
+    <string name="square11">square11</string>
+    <string name="square12">square12</string>
+    <string name="square13">square13</string>
+    <string name="square14">square14</string>
+    <string name="square15">square15</string>
+    <string name="square16">square16</string>
+    <string name="square17">square17</string>
+    <string name="square18">square18</string>
+    <string name="square19">square19</string>
+    <string name="square20">square20</string>
+    <string name="square21">square21</string>
+    <string name="square22">square22</string>
+    <string name="square23">square23</string>
+    <string name="square24">square24</string>
+    <string name="square25">square25</string>
+    <string name="square26">square26</string>
+    <string name="square27">square27</string>
+    <string name="square28">square28</string>
+    <string name="square29">square29</string>
+    <string name="square30">square30</string>
+    <string name="square31">square31</string>
+    <string name="square32">square32</string>
+    <string name="square33">square33</string>
+    <string name="square34">square34</string>
+    <string name="square35">square35</string>
+    <string name="square36">square35</string>
+    <string name="square37">square35</string>
+    <string name="square38">square35</string>
+    <string name="square39">square35</string>
+    <string name="square40">square35</string>
+    <string name="square41">square35</string>
+    <string name="square42">square35</string>
+
+    //textViews tools texts
+    <string name="textViewCurrentDate">November</string>
+    <string name="textViewPreviousMonth">Previous</string>
+    <string name="textViewNextMonth">Next</string>
+
+
+</resources>
