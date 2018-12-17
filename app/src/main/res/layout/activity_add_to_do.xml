@@ -163,6 +163,18 @@
         app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@android:drawable/ic_menu_month" />
 
+    <TextView
+        android:id="@+id/textViewTaskComment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="24dp"
+        android:text="Short comment"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextFinishDate"
+        tools:text="Short comment" />
+
     <Button
         android:id="@+id/buttonAddReminder"
         android:layout_width="wrap_content"
@@ -175,5 +187,19 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         tools:text="ADD" />
+
+    <EditText
+        android:id="@+id/editTextShortComment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:inputType="textShortMessage"
+        android:text="Comment task..."
+        app:layout_constraintStart_toStartOf="@+id/textViewTaskComment"
+        app:layout_constraintTop_toBottomOf="@+id/textViewTaskComment"
+        tools:text="Comment task..." />
 
 </android.support.constraint.ConstraintLayout>

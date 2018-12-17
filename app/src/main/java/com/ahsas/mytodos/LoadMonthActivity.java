@@ -245,7 +245,7 @@ public class LoadMonthActivity extends AppCompatActivity {
                     Intent intent = new Intent(getBaseContext(), AddToDo.class);
                     intent.putExtra("day", mDay);
                     intent.putExtra("years", mYearToShow);
-                    intent.putExtra("month", mMonthToShow);
+                    intent.putExtra("month", mMonthToShow + 1);
                     startActivity(intent);
                 }
             });
