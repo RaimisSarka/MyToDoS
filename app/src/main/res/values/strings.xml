@@ -4,6 +4,8 @@
     <string name="title_activity_load_month"></string>
     <string name="title_activity_add_to_do"></string>
 
+    <string name="base_date">1970/01/01</string>
+
     //Date format
     <string name="date_format">%1$d/%2$d/%3$d</string>
 
@@ -58,6 +60,9 @@
     <string name="textViewCurrentDate">November</string>
     <string name="textViewPreviousMonth">Previous</string>
     <string name="textViewNextMonth">Next</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 
 </resources>
