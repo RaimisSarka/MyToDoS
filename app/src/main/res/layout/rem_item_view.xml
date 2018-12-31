@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="5dp"
+    android:background="@drawable/layout_borders">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/show_title_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
+            android:contentDescription="TITLE"
+            android:text="TITLE"
+            android:textColor="@color/colorButtonTextColor"
+            app:layout_constraintStart_toEndOf="@+id/show_kind_textView"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="TITLE" />
+
+        <TextView
+            android:id="@+id/show_kind_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
+            android:text="KIND"
+            android:textColor="@color/colorButtonTextColor"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="KIND" />
+
+        <TextView
+            android:id="@+id/show_start_date_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
+            android:contentDescription="START DATE"
+            android:text="START DATE"
+            android:textColor="@color/colorButtonTextColor"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/show_kind_textView"
+            tools:text="START DATE" />
+
+        <TextView
+            android:id="@+id/show_finish_date_textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
+            android:contentDescription="FINISH DATE"
+            android:text="FINISH DATE"
+            android:textColor="@color/colorButtonTextColor"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/show_start_date_textView"
+            tools:text="FINISH DATE" />
+
+        <TextView
+            android:id="@+id/show_comment_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:contentDescription="COMMENT"
+            android:text="COMMENT"
+            android:textColor="@color/colorButtonTextColor"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/show_finish_date_textView2"
+            tools:text="COMMENT" />
+    </android.support.constraint.ConstraintLayout>
+
+</android.support.v7.widget.LinearLayoutCompat>

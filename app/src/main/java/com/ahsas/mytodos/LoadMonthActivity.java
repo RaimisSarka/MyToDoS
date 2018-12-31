@@ -22,6 +22,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -49,6 +50,7 @@ public class LoadMonthActivity extends AppCompatActivity {
     public int mMonthToShow;
     public int mYearToShow;
 
+    //TODO after removing images, delete those two
     public ImageView[] mSquares = new ImageView[43];
     public int[] mDaysBitmaps = new int[32];
 
@@ -61,7 +63,9 @@ public class LoadMonthActivity extends AppCompatActivity {
 
         loadImageViews();
         loadDaysToday();
-        sendNotification();
+        //TODO create logic of notification
+        //sendNotification();
+
         Log.d(TAG, "onCreate");
         Toast.makeText(this,"test toast", Toast.LENGTH_LONG);
 
@@ -74,8 +78,15 @@ public class LoadMonthActivity extends AppCompatActivity {
         final FrameLayout mFlButtonPrevious = (FrameLayout) findViewById(R.id.frameLayoutPreviousMonth);
         final FrameLayout mFlButtonNext = (FrameLayout) findViewById(R.id.frameLayoutNextMonth);
         final ConstraintLayout mBaseLayout = (ConstraintLayout) findViewById(R.id.base_constraint_layout);
+        final Button mShowAllButton = (Button) findViewById(R.id.show_all_button);
 
-
+        mShowAllButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getBaseContext(), ShowAllRemsActivity.class);
+                startActivity(intent);
+            }
+        });
 
         mBaseLayout.setOnTouchListener(new OnSwipeTouchListener(LoadMonthActivity.this){
 
@@ -234,10 +245,11 @@ public class LoadMonthActivity extends AppCompatActivity {
             mFirstOfMonthIsDayOfWeek--;
         }
 
+        //TODO remove images and make normal fl buttons
         //Set images to squares
         for (int i=1; i<=mDaysInMonth; i++){
             final int mDay = i;
-            mSquares[i+mFirstOfMonthIsDayOfWeek-1].setImageResource(mDaysBitmaps[i]);
+            //mSquares[i+mFirstOfMonthIsDayOfWeek-1].setImageResource(mDaysBitmaps[i]);
             mSquares[i+mFirstOfMonthIsDayOfWeek-1].setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -329,6 +341,7 @@ public class LoadMonthActivity extends AppCompatActivity {
         mSquares[41] = (ImageView) findViewById(R.id.imageViewSquere41);
         mSquares[42] = (ImageView) findViewById(R.id.imageViewSquere42);
 
+        //TODO delete this after removing images
         mDaysBitmaps[1] = R.drawable.day1;
         mDaysBitmaps[2] = R.drawable.day2;
         mDaysBitmaps[3] = R.drawable.day3;
