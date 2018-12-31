@@ -16,6 +16,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
             android:name=".StartLogoActivity"
             android:label="@string/title_activity_start_logo"
@@ -25,6 +26,7 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
         </activity>
+
         <activity
             android:name=".LoadMonthActivity"
             android:label="@string/title_activity_load_month"
@@ -33,15 +35,16 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
         </activity>
+
         <activity
             android:name=".AddToDo"
             android:label="@string/title_activity_add_to_do"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:screenOrientation="portrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".LoadMonthActivity" />
         </activity>
+
         <activity android:name=".ShowAllRemsActivity"
             android:label=""
             android:screenOrientation="portrait">
@@ -49,6 +52,7 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".LoadMonthActivity" />
         </activity>
+
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />

@@ -72,7 +72,7 @@ public class AddToDo extends AppCompatActivity {
         mReminderDB = mReminderDbHelper.getWritableDatabase();
 
 
-        //TODO create back to parrent activity button and go back after ADD button click
+        //TODO create back to parent activity button and go back after ADD button click
         Button mJobKindButton = (Button) findViewById(R.id.button_Job_reminder);
         Button mHomeKindButton = (Button) findViewById(R.id.button_home_reminder);
         Button mOtherKindButton = (Button) findViewById(R.id.button_other_reminder);

@@ -22,9 +22,30 @@
         <item name="android:layout_marginStart">8dp</item>
         <item name="android:layout_marginTop">8dp</item>
         <item name="android:layout_weight">1</item>
-        <item name="android:background">@drawable/layout_borders</item>
-
+        <item name="android:background">@drawable/button_layout_not_pressed</item>
+        <item name="android:contentDescription">@string/square1</item>
+        <item name="android:gravity">center</item>
+        <item name="android:text">1</item>
+        <item name="android:textColor">@color/colorButtonTextColor</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">bold|italic</item>
     </style>
 
+    <style name="DayButtonStyle">
+        <item name="android:layout_width">40dp</item>
+        <item name="android:layout_height">40dp</item>
+        <item name="android:layout_marginStart">8dp</item>
+        <item name="android:layout_marginLeft">8dp</item>
+        <item name="android:layout_marginTop">8dp</item>
+        <item name="android:layout_marginBottom">8dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:background">@drawable/button_layout_not_pressed</item>
+        <item name="android:contentDescription">@string/square1</item>
+        <item name="android:gravity">center</item>
+        <item name="android:text">1</item>
+        <item name="android:textColor">@color/colorButtonTextColor</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">bold|italic</item>
+    </style>
 
 </resources>
