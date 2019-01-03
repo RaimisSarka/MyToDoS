@@ -26,7 +26,6 @@ public class ShowAllRemsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show_all_rems);
 
-        //TODO load all data from db and publish to recyclerView
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.show_all_recyclerView);
         dataModel = getRemsData();
         RecyclerAdapter recycler = new RecyclerAdapter(dataModel);

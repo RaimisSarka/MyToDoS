@@ -178,8 +178,8 @@ public class LoadMonthActivity extends AppCompatActivity {
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
         Log.d(TAG, "onSaveInstanceState");
-        outState.putInt("month_to_show", mMonthToShow);
-        outState.putInt("year_to_show", mYearToShow);
+        outState.putInt("month_to_show ", mMonthToShow);
+        outState.putInt("year_to_show ", mYearToShow);
     }
 
     @Override
@@ -237,12 +237,19 @@ public class LoadMonthActivity extends AppCompatActivity {
         //Clear squares
         for (int i=1; i<43; i++){
             mSquares[i].setText("");
+            mSquares[i].setBackgroundColor(getResources().getColor(R.color.colorButtonBackground));
         }
+
         //Make first day of week - monday
         if (mFirstOfMonthIsDayOfWeek == 1) {
             mFirstOfMonthIsDayOfWeek = 7;
         } else {
             mFirstOfMonthIsDayOfWeek--;
+        }
+
+        //Checking if its current month and if it is mark today
+        if ((mYearToShow == mMainYear) && (mMonthToShow == mMainMonth)){
+            mSquares[mMainDay + mFirstOfMonthIsDayOfWeek-1].setBackgroundColor(getResources().getColor(R.color.colorTodayButton));
         }
 
         //Set values to squares
