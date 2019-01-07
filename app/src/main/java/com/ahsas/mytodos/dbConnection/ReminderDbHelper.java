@@ -31,6 +31,10 @@ public class ReminderDbHelper extends SQLiteOpenHelper {
         db.execSQL(SQL_CREATE_REMINDER_TABLE);
     }
 
+    public void deleteRow(SQLiteDatabase db, int id){
+        //TODO delete row..
+    }
+
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL(SQL_DELETE_REMINDER_TABLE);

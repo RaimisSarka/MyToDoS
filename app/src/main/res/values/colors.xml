@@ -8,7 +8,9 @@
     <color name="colorLayoutBorder">#000000</color>
     <color name="colorAppBacground">#4f83cc</color>
     <color name="colorButtonBackground">#002f6c</color>
+    <color name="colorButtonRemoveBackground">#FF4081</color>
     <color name="colorButtonBackgroundOnClick">#009900</color>
     <color name="colorTodayButton">#009900</color>
     <color name="colorButtonTextColor">#dddddd</color>
+    <color name="colorCommentTextColor">#ffaaaa</color>
 </resources>

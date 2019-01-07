@@ -12,6 +12,34 @@
         android:layout_height="match_parent">
 
         <TextView
+            android:id="@+id/finish_date_label_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
+            android:text="FINISH DATE:"
+            android:textColor="@color/colorButtonTextColor"
+            android:textStyle="bold|italic"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/start_date_label_textView"
+            tools:text="FINISH DATE:" />
+
+        <TextView
+            android:id="@+id/start_date_label_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
+            android:text="START DATE:"
+            android:textColor="@color/colorButtonTextColor"
+            android:textStyle="bold|italic"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/show_kind_textView"
+            tools:text="START DATE:" />
+
+        <TextView
             android:id="@+id/show_title_textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -34,6 +62,7 @@
             android:layout_marginTop="8dp"
             android:text="KIND"
             android:textColor="@color/colorButtonTextColor"
+            android:textStyle="bold|italic"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="KIND" />
@@ -44,12 +73,11 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginLeft="8dp"
-            android:layout_marginTop="8dp"
             android:contentDescription="START DATE"
             android:text="START DATE"
             android:textColor="@color/colorButtonTextColor"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/show_kind_textView"
+            app:layout_constraintStart_toEndOf="@+id/start_date_label_textView"
+            app:layout_constraintTop_toTopOf="@+id/start_date_label_textView"
             tools:text="START DATE" />
 
         <TextView
@@ -58,12 +86,11 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginLeft="8dp"
-            android:layout_marginTop="8dp"
             android:contentDescription="FINISH DATE"
             android:text="FINISH DATE"
             android:textColor="@color/colorButtonTextColor"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/show_start_date_textView"
+            app:layout_constraintStart_toEndOf="@+id/finish_date_label_textView"
+            app:layout_constraintTop_toTopOf="@+id/finish_date_label_textView"
             tools:text="FINISH DATE" />
 
         <TextView
@@ -73,13 +100,12 @@
             android:layout_marginStart="8dp"
             android:layout_marginLeft="8dp"
             android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp"
             android:contentDescription="COMMENT"
             android:text="COMMENT"
-            android:textColor="@color/colorButtonTextColor"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/show_finish_date_textView2"
+            android:textColor="@color/colorCommentTextColor"
+            android:textStyle="italic"
+            app:layout_constraintStart_toEndOf="@+id/show_title_textView"
+            app:layout_constraintTop_toTopOf="parent"
             tools:text="COMMENT" />
     </android.support.constraint.ConstraintLayout>
 

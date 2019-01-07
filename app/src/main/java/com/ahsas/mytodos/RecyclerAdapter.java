@@ -64,4 +64,10 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyHold
     public int getItemCount() {
         return dataModelArrayList.size();
     }
+
+    public void removeItem (int position){
+        dataModelArrayList.remove(position);
+        notifyItemRemoved(position);
+        notifyItemRangeChanged(position, dataModelArrayList.size());
+    }
 }

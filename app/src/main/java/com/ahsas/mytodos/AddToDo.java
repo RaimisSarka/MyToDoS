@@ -156,7 +156,7 @@ public class AddToDo extends AppCompatActivity {
                 mCommentEditText.clearFocus();
 
                 if (dataAreCorrect()){
-                    //TODO add all to database
+                    //add all to database
 
                     // Gets the data repository in write mode
                     SQLiteDatabase db = mReminderDbHelper.getWritableDatabase();
@@ -184,7 +184,7 @@ public class AddToDo extends AppCompatActivity {
     private boolean dataAreCorrect(){
         boolean correct = false;
 
-        //TODO check if date are correct
+        //check if data are correct
         if (!mReminderKind.equals("") &&
                 !mReminderTitle.equals("") &&
                 !mReminderStartDate.equals(this.getResources().getString(R.string.base_date)) &&
