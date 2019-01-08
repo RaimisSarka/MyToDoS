@@ -1,10 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorPrimary">#01579b</color>
+    <color name="coloPrimaryLight">#4f83cc</color>
+    <color name="colorPrimaryDark">#002f6c</color>
+
     <color name="colorAccent">#FF4081</color>
     <color name="colorLayoutBorder">#000000</color>
-    <color name="colorAppBacground">#FFFFFF</color>
-    <color name="colorButtonBackground">#aabbee</color>
-    <color name="colorButtonBackgroundOnClick">#aaffaa</color>
+    <color name="colorAppBacground">#4f83cc</color>
+    <color name="colorButtonBackground">#002f6c</color>
+    <color name="colorButtonRemoveBackground">#FF4081</color>
+    <color name="colorButtonBackgroundOnClick">#009900</color>
+    <color name="colorTodayButton">#009900</color>
+    <color name="colorButtonTextColor">#dddddd</color>
+    <color name="colorCommentTextColor">#ffaaaa</color>
 </resources>

@@ -25,7 +25,7 @@ public class StartLogoActivity extends AppCompatActivity {
                         finish();
                     }
                 },
-                2000
+                500
         );
 
     }

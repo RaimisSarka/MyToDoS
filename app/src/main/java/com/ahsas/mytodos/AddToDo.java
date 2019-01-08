@@ -3,6 +3,10 @@ package com.ahsas.mytodos;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.app.TimePickerDialog;
+import android.content.ContentValues;
+import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
 import android.graphics.Color;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.content.ContextCompat;
@@ -19,6 +23,9 @@ import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TimePicker;
+
+import com.ahsas.mytodos.dbConnection.ReminderContract;
+import com.ahsas.mytodos.dbConnection.ReminderDbHelper;
 
 import java.util.Calendar;
 import java.util.Set;
@@ -43,31 +50,47 @@ public class AddToDo extends AppCompatActivity {
     private String mReminderFinishDate;
     private String mReminderComment;
 
+    //db connection
+    SQLiteDatabase mReminderDB;
+    ReminderDbHelper mReminderDbHelper;
+
     //Other var's
     private Boolean mSetStartDate;
+
+    @Override
+    protected void onDestroy() {
+        mReminderDbHelper.close();
+        super.onDestroy();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_to_do);
 
-        InitializeReminderData();
-        LoadExtras(savedInstanceState); //Load parsed data from LoadMonthActivity
-        pushDateToLayout();
+        mReminderDbHelper = new ReminderDbHelper(getBaseContext());
+        mReminderDB = mReminderDbHelper.getWritableDatabase();
 
+
+        //TODO create back to parent activity button and go back after ADD button click
         Button mJobKindButton = (Button) findViewById(R.id.button_Job_reminder);
         Button mHomeKindButton = (Button) findViewById(R.id.button_home_reminder);
         Button mOtherKindButton = (Button) findViewById(R.id.button_other_reminder);
-        Spinner mReminderTitleTextView = (Spinner) findViewById(R.id.spinner_select_to_do);
+        Spinner mReminderTitleSpinner = (Spinner) findViewById(R.id.spinner_select_to_do);
         EditText mStartDateEditText = (EditText) findViewById(R.id.editTextStartDate);
         EditText mFinishDateEditText = (EditText) findViewById(R.id.editTextFinishDate);
         final EditText mCommentEditText = (EditText) findViewById(R.id.editTextShortComment);
         ImageView mStartDatePickerImageView = (ImageView) findViewById(R.id.imageViewStartDatePicker);
         ImageView mFinishDatePickerImageVeiw = (ImageView) findViewById(R.id.imageViewFinishDatePicker);
 
+        InitializeReminderData();
+        LoadExtras(savedInstanceState); //Load parsed data from LoadMonthActivity
+        pushDateToLayout();
+
         mCommentEditText.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View view, boolean hasFocus) {
+
                 if ((hasFocus)){
                     Log.d(TAG, "Comment text onFocus is- " + mCommentEditText.getText().toString());
                     if (mCommentEditText.getText().toString().equals("Comment task...")) {
@@ -79,6 +102,8 @@ public class AddToDo extends AppCompatActivity {
                         mCommentEditText.setText("Comment task...");
                     }
                 }
+                Log.d(TAG, "Comment text after if statement- " + mCommentEditText.getText().toString());
+                mReminderComment = mCommentEditText.getText().toString();
             }
         });
 
@@ -127,8 +152,29 @@ public class AddToDo extends AppCompatActivity {
         mAddReminderButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                mCommentEditText.clearFocus();
+
                 if (dataAreCorrect()){
-                    //TODO add all to database
+                    //add all to database
+
+                    // Gets the data repository in write mode
+                    SQLiteDatabase db = mReminderDbHelper.getWritableDatabase();
+
+                    // Create a new map of values, where column names are the keys
+                    ContentValues values = new ContentValues();
+                    values.put(ReminderContract.ReminderTable.COLUMN_NAME_KIND, mReminderKind);
+                    values.put(ReminderContract.ReminderTable.COLUMN_NAME_TITLE, mReminderTitle);
+                    values.put(ReminderContract.ReminderTable.COLUMN_NAME_START_DATE, mReminderStartDate);
+                    values.put(ReminderContract.ReminderTable.COLUMN_NAME_FINISH_DATE, mReminderFinishDate);
+                    values.put(ReminderContract.ReminderTable.COLUMN_NAME_COMMENT, mReminderComment);
+                    values.put(ReminderContract.ReminderTable.COLUMN_NAME_STATUS, 0);
+
+                    // Insert the new row, returning the primary key value of the new row
+                    long newRowId = db.insert(ReminderContract.ReminderTable.TABLE_NAME, null, values);
+
+                    Intent intent = new Intent(getBaseContext(), LoadMonthActivity.class);
+                    startActivity(intent);
                 }
             }
         });
@@ -138,8 +184,19 @@ public class AddToDo extends AppCompatActivity {
     private boolean dataAreCorrect(){
         boolean correct = false;
 
-        //TODO check if date are correct
-
+        //check if data are correct
+        if (!mReminderKind.equals("") &&
+                !mReminderTitle.equals("") &&
+                !mReminderStartDate.equals(this.getResources().getString(R.string.base_date)) &&
+                !mReminderFinishDate.equals(this.getResources().getString(R.string.base_date)) &&
+                !mReminderComment.equals("")){
+            correct = true;
+        }
+        Log.d(TAG, "ReminderKind = " + mReminderKind);
+        Log.d(TAG, "ReminderTitle = " + mReminderTitle);
+        Log.d(TAG, "ReminderStartDate = " + mReminderStartDate);
+        Log.d(TAG, "ReminderFinishDate = " + mReminderFinishDate);
+        Log.d(TAG, "ReminderComment = " + mReminderComment);
         return correct;
     }
 
@@ -170,7 +227,8 @@ public class AddToDo extends AppCompatActivity {
 
     private void InitializeReminderData(){
         mReminderKind = JOB_KIND;
-        mReminderTitle = "";
+        Spinner mReminderTitleSpinner = (Spinner) findViewById(R.id.spinner_select_to_do);
+        mReminderTitle = mReminderTitleSpinner.getSelectedItem().toString();
         mReminderStartDate = this.getResources().getString(R.string.base_date);
         mReminderFinishDate = this.getResources().getString(R.string.base_date);
         mReminderComment = "";
@@ -227,7 +285,7 @@ public class AddToDo extends AppCompatActivity {
         }
 
         mReminderTitlesSpinenr.setAdapter(adapter);
-
+        mReminderTitle = mReminderTitlesSpinenr.getSelectedItem().toString();
         //Dates
         EditText mStartDateEditText = (EditText) findViewById(R.id.editTextStartDate);
         EditText mFinishDateEditText = (EditText) findViewById(R.id.editTextFinishDate);
@@ -287,8 +345,7 @@ public class AddToDo extends AppCompatActivity {
         }
 
         public void onDateSet(DatePicker view, int year, int month, int day) {
-            // Do something with the date chosen by the user
-            //TODO save date to local variables somehow
+            // Save new date
             if (((AddToDo) getActivity()).mSetStartDate) {
                 ((AddToDo) getActivity()).mReminderStartDate = getString(R.string.date_format, year, month + 1, day);
             } else {
