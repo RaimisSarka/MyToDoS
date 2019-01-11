@@ -15,6 +15,7 @@ import android.os.Bundle;
 import android.text.format.DateFormat;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -81,11 +82,11 @@ public class AddToDo extends AppCompatActivity {
         EditText mFinishDateEditText = (EditText) findViewById(R.id.editTextFinishDate);
         final EditText mCommentEditText = (EditText) findViewById(R.id.editTextShortComment);
         ImageView mStartDatePickerImageView = (ImageView) findViewById(R.id.imageViewStartDatePicker);
-        ImageView mFinishDatePickerImageVeiw = (ImageView) findViewById(R.id.imageViewFinishDatePicker);
+        ImageView mFinishDatePickerImageView = (ImageView) findViewById(R.id.imageViewFinishDatePicker);
 
         InitializeReminderData();
         LoadExtras(savedInstanceState); //Load parsed data from LoadMonthActivity
-        pushDateToLayout();
+        pushDataToLayout();
 
         mCommentEditText.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
@@ -115,7 +116,7 @@ public class AddToDo extends AppCompatActivity {
             }
         });
 
-        mFinishDatePickerImageVeiw.setOnClickListener(new View.OnClickListener() {
+        mFinishDatePickerImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 mSetStartDate = false;
@@ -127,7 +128,7 @@ public class AddToDo extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 mReminderKind = JOB_KIND;
-                pushDateToLayout();
+                pushDataToLayout();
             }
         });
 
@@ -135,7 +136,7 @@ public class AddToDo extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 mReminderKind = HOME_KIND;
-                pushDateToLayout();
+                pushDataToLayout();
             }
         });
 
@@ -143,7 +144,19 @@ public class AddToDo extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 mReminderKind = OTHER_KIND;
-                pushDateToLayout();
+                pushDataToLayout();
+            }
+        });
+
+        mReminderTitleSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
+                String selectedItem = adapterView.getItemAtPosition(position).toString();
+                mReminderTitle = selectedItem;
+            }
+            public void onNothingSelected(AdapterView<?> parent)
+            {
+                //Do something...
             }
         });
 
@@ -234,16 +247,16 @@ public class AddToDo extends AppCompatActivity {
         mReminderComment = "";
     }
 
-    private void pushDateToLayout(){
+    private void pushDataToLayout(){
 
         Button mJobKindButton = (Button) findViewById(R.id.button_Job_reminder);
         Button mHomeKindButton = (Button) findViewById(R.id.button_home_reminder);
         Button mOtherKindButton = (Button) findViewById(R.id.button_other_reminder);
-        Spinner mReminderTitlesSpinenr = (Spinner) findViewById(R.id.spinner_select_to_do);
+        Spinner mReminderTitlesSpinner = (Spinner) findViewById(R.id.spinner_select_to_do);
 
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
-                R.array.default_job_reminders, android.R.layout.simple_spinner_item);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                R.array.default_job_reminders, R.layout.spinner_item_view);
+        //adapter.setDropDownViewResource(R.layout.spinner_item_view);
 
         Log.d(TAG, "Before entering job kind");
 
@@ -256,8 +269,8 @@ public class AddToDo extends AppCompatActivity {
                 SetButtonColor(mOtherKindButton, false);
                 //create adapter for spinner
                 adapter = ArrayAdapter.createFromResource(this,
-                        R.array.default_job_reminders, android.R.layout.simple_spinner_item);
-                adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                        R.array.default_job_reminders, R.layout.spinner_item_view);
+                //adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
                 break;
             case HOME_KIND:
@@ -267,8 +280,8 @@ public class AddToDo extends AppCompatActivity {
                 SetButtonColor(mOtherKindButton, false);
                 //create adapter for spinner
                 adapter = ArrayAdapter.createFromResource(this,
-                        R.array.default_home_reminders, android.R.layout.simple_spinner_item);
-                adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                        R.array.default_home_reminders, R.layout.spinner_item_view);
+                //adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 break;
             case OTHER_KIND:
                 Log.d(TAG, "Entering other kind");
@@ -277,15 +290,15 @@ public class AddToDo extends AppCompatActivity {
                 SetButtonColor(mOtherKindButton, true);
                 //create adapter for spinner
                 adapter = ArrayAdapter.createFromResource(this,
-                        R.array.default_other_reminder, android.R.layout.simple_spinner_item);
-                adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                        R.array.default_other_reminder, R.layout.spinner_item_view);
+                //adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 break;
             default:
                 break;
         }
 
-        mReminderTitlesSpinenr.setAdapter(adapter);
-        mReminderTitle = mReminderTitlesSpinenr.getSelectedItem().toString();
+        mReminderTitlesSpinner.setAdapter(adapter);
+        mReminderTitle = mReminderTitlesSpinner.getSelectedItem().toString();
         //Dates
         EditText mStartDateEditText = (EditText) findViewById(R.id.editTextStartDate);
         EditText mFinishDateEditText = (EditText) findViewById(R.id.editTextFinishDate);
@@ -351,7 +364,7 @@ public class AddToDo extends AppCompatActivity {
             } else {
                 ((AddToDo) getActivity()).mReminderFinishDate = getString(R.string.date_format, year, month + 1, day);
             }
-            ((AddToDo) getActivity()).pushDateToLayout();
+            ((AddToDo) getActivity()).pushDataToLayout();
         }
     }
 

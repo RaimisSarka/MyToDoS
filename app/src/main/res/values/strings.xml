@@ -61,5 +61,10 @@
     <string name="textViewPreviousMonth">Previous</string>
     <string name="textViewNextMonth">Next</string>
 
+    //status texts
+    <string name="pending_status">PENDING</string>
+    <string name="in_progress_status">IN PROGRESS</string>
+    <string name="canceled_status">CANCELED</string>
+    <string name="done_status">DONE</string>
 
 </resources>

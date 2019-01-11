@@ -13,4 +13,8 @@
     <color name="colorTodayButton">#009900</color>
     <color name="colorButtonTextColor">#dddddd</color>
     <color name="colorCommentTextColor">#ffaaaa</color>
+    <color name="colorPendingLabel">#FFaaaa</color>
+    <color name="colorDoneLabel">#00ff00</color>
+    <color name="colorCanceledLabel">#dddddd</color>
+    <color name="colorInProgressLabel">#FFdddd</color>
 </resources>

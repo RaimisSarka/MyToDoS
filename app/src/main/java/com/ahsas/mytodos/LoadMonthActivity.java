@@ -276,7 +276,7 @@ public class LoadMonthActivity extends AppCompatActivity {
         NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(this, CHANNEL_ID)
                 .setSmallIcon(R.drawable.logo_todos)
                 .setContentTitle("ToDos reminder")
-                .setContentText("Nothig to remind.")
+                .setContentText("Nothing to remind.")
                 .setAutoCancel(true)
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT);
 

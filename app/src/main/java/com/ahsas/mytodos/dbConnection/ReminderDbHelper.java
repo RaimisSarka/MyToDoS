@@ -23,6 +23,12 @@ public class ReminderDbHelper extends SQLiteOpenHelper {
     private static final String SQL_DELETE_REMINDER_TABLE =
             "DROP TABLE IF EXISTS " + ReminderContract.ReminderTable.TABLE_NAME;
 
+    private static final String SQL_DELETE_FROM_REMINDER_TABLE_WHERE =
+        "DELETE FROM " + ReminderContract.ReminderTable.TABLE_NAME + " WHERE ";
+
+    private static final String SQL_UPDATE_STATUS_TO_DONE_WHERE =
+            "UPDATE " + ReminderContract.ReminderTable.TABLE_NAME + " SET " + ReminderContract.ReminderTable.COLUMN_NAME_STATUS + " = 3 WHERE";
+
     public ReminderDbHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
@@ -31,8 +37,12 @@ public class ReminderDbHelper extends SQLiteOpenHelper {
         db.execSQL(SQL_CREATE_REMINDER_TABLE);
     }
 
-    public void deleteRow(SQLiteDatabase db, int id){
-        //TODO delete row..
+    public void deleteRowById(SQLiteDatabase db, int id){
+        db.execSQL(SQL_DELETE_FROM_REMINDER_TABLE_WHERE + "_ID = " + String.valueOf(id));
+    }
+
+    public void updateStatusToDone(SQLiteDatabase db, int id){
+        db.execSQL(SQL_UPDATE_STATUS_TO_DONE_WHERE + " _ID = " + String.valueOf(id));
     }
 
     @Override

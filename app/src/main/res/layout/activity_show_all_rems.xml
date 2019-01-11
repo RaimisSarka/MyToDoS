@@ -10,4 +10,50 @@
         android:id="@+id/show_all_recyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:background="@color/colorAppBacground"
+        app:layout_constraintBottom_toBottomOf="@+id/show_all_recyclerView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <Button
+            android:id="@+id/sort_by_job_type_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="3dp"
+            android:layout_weight="0.3"
+            android:background="@drawable/button_layout_not_pressed"
+            android:text="JOB"
+            android:textColor="@color/colorButtonTextColor"
+            tools:text="JOB" />
+
+        <Button
+            android:id="@+id/sort_by_home_type_button2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="3dp"
+            android:layout_weight="0.3"
+            android:background="@drawable/button_layout_not_pressed"
+            android:text="HOME"
+            android:textColor="@color/colorButtonTextColor"
+            tools:text="HOME" />
+
+        <Button
+            android:id="@+id/sort_by_other_type_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="3dp"
+            android:layout_weight="0.3"
+            android:background="@drawable/button_layout_not_pressed"
+            android:text="OTHER"
+            android:textColor="@color/colorButtonTextColor"
+            tools:text="OTHER" />
+
+    </LinearLayout>
+
 </android.support.constraint.ConstraintLayout>

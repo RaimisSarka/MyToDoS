@@ -12,6 +12,24 @@
         android:layout_height="match_parent">
 
         <TextView
+            android:id="@+id/status_label_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:text="DONE"
+            android:textColor="@color/colorDoneLabel"
+            android:textSize="24sp"
+            android:textStyle="bold|italic"
+            app:layout_constraintBottom_toBottomOf="@+id/show_start_date_textView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/show_start_date_textView"
+            app:layout_constraintTop_toTopOf="@+id/show_start_date_textView"
+            tools:text="STATUS" />
+
+        <TextView
             android:id="@+id/finish_date_label_textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
