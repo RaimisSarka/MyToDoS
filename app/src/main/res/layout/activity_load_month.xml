@@ -9,21 +9,49 @@
     tools:context=".LoadMonthActivity">
 
     <Button
-        android:id="@+id/show_all_button"
+        android:id="@+id/show_closed_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
+        android:background="@drawable/button_layout_not_pressed"
+        android:contentDescription="SHOW CLOSED"
+        android:text="SHOW CLOSED"
+        android:textColor="@color/colorButtonTextColor"
+        app:layout_constraintEnd_toStartOf="@+id/show_all_button"
+        app:layout_constraintStart_toEndOf="@+id/show_not_done_button"
+        app:layout_constraintTop_toTopOf="@+id/show_not_done_button"
+        tools:text="SHOW CLOSED" />
+
+    <Button
+        android:id="@+id/show_not_done_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/button_layout_not_pressed"
+        android:contentDescription="SHOW ACTIVE"
+        android:text="SHOW ACTIVE"
+        android:textColor="@color/colorButtonTextColor"
+        app:layout_constraintStart_toStartOf="@+id/constraintLayout"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
+        tools:text="SHOW ACTIVE" />
+
+    <Button
+        android:id="@+id/show_all_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
         android:background="@drawable/button_layout_not_pressed"
         android:contentDescription="SHOW ALL"
         android:text="SHOW ALL"
         android:textColor="@color/colorButtonTextColor"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
+        app:layout_constraintEnd_toEndOf="@+id/constraintLayout"
+        app:layout_constraintTop_toTopOf="@+id/show_closed_button"
         tools:text="SHOW ALL" />
 
     <FrameLayout

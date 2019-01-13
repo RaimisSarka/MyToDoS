@@ -2,13 +2,23 @@ package com.ahsas.mytodos;
 
 public class ReminderDataModel {
 
+    public int mId;
     public String mKind;
     public String mTitle;
     public String mStartDate;
     public String mFinishDate;
     public String mComment;
+    public String mStatus;
 
     public ReminderDataModel() {
+    }
+
+    public void setId(int id) {
+        mId = id;
+    }
+
+    public int getId() {
+        return mId;
     }
 
     public String getKind() {
@@ -49,5 +59,13 @@ public class ReminderDataModel {
 
     public void setComment(String mComment) {
         this.mComment = mComment;
+    }
+
+    public String getStatus() {
+        return mStatus;
+    }
+
+    public void setStatus(String mStatus) {
+        this.mStatus = mStatus;
     }
 }
