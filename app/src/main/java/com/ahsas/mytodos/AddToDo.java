@@ -186,8 +186,9 @@ public class AddToDo extends AppCompatActivity {
                     // Insert the new row, returning the primary key value of the new row
                     long newRowId = db.insert(ReminderContract.ReminderTable.TABLE_NAME, null, values);
 
-                    Intent intent = new Intent(getBaseContext(), LoadMonthActivity.class);
-                    startActivity(intent);
+                    finish();
+                    //Intent intent = new Intent(getBaseContext(), LoadMonthActivity.class);
+                    //startActivity(intent);
                 }
             }
         });
