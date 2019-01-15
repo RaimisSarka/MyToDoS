@@ -79,11 +79,31 @@ public class LoadMonthActivity extends AppCompatActivity {
         final FrameLayout mFlButtonNext = (FrameLayout) findViewById(R.id.frameLayoutNextMonth);
         final ConstraintLayout mBaseLayout = (ConstraintLayout) findViewById(R.id.base_constraint_layout);
         final Button mShowAllButton = (Button) findViewById(R.id.show_all_button);
+        final Button mShowActiveButton = (Button) findViewById(R.id.show_not_done_button);
+        final Button mShowClosedButton = (Button) findViewById(R.id.show_closed_button);
 
         mShowAllButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getBaseContext(), ShowAllRemsActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        mShowActiveButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getBaseContext(), ShowAllRemsActivity.class);
+                intent.putExtra("sortByStatus", "0");
+                startActivity(intent);
+            }
+        });
+
+        mShowClosedButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getBaseContext(), ShowAllRemsActivity.class);
+                intent.putExtra("sortByStatus", "3");
                 startActivity(intent);
             }
         });

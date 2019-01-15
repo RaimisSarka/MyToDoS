@@ -6,7 +6,7 @@
 
     <color name="colorAccent">#FF4081</color>
     <color name="colorLayoutBorder">#000000</color>
-    <color name="colorAppBacground">#4f83cc</color>
+    <color name="colorAppBacground">#4F83CC</color>
     <color name="colorButtonBackground">#002f6c</color>
     <color name="colorButtonRemoveBackground">#FF4081</color>
     <color name="colorButtonBackgroundOnClick">#009900</color>

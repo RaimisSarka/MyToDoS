@@ -37,6 +37,7 @@ public class ShowAllRemsActivity extends AppCompatActivity {
     private Paint p = new Paint();
 
     private String mSortingKind = "";
+    private String mSortingStatus = "";
 
     List<ReminderDataModel> dataModelArray = new ArrayList<ReminderDataModel>();
 
@@ -45,6 +46,7 @@ public class ShowAllRemsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show_all_rems);
 
+        loadExtras(savedInstanceState);
 
         final Button mSortByJobButton = (Button) findViewById(R.id.sort_by_job_type_button);
         final Button mSortByHomeButton = (Button) findViewById(R.id.sort_by_home_type_button2);
@@ -87,6 +89,20 @@ public class ShowAllRemsActivity extends AppCompatActivity {
 
         //Sorting recyclerView
 
+    }
+
+    private void loadExtras (Bundle sis){
+        //Getting extras
+        if (sis == null){
+            Bundle extras = getIntent().getExtras();
+            if (extras == null){
+                mSortingStatus = "";
+            } else {
+                mSortingStatus = extras.getString("sortByStatus");
+            }
+        } else {
+            mSortingStatus = (String) sis.getSerializable("sortByStatus");
+        }
     }
 
     private void SetButtonColor(Button bt, Boolean on_off){
@@ -184,11 +200,27 @@ public class ShowAllRemsActivity extends AppCompatActivity {
         Cursor cursor = db.rawQuery("SELECT * FROM " + ReminderContract.ReminderTable.TABLE_NAME + ";", null);
 
         //If data should be sorted
-        if (!mSortingKind.equals("")) {
-            String SQL_Query = "SELECT * FROM " + ReminderContract.ReminderTable.TABLE_NAME +
-                    " WHERE " + ReminderContract.ReminderTable.COLUMN_NAME_KIND + " = ? ";
-            cursor = db.rawQuery(SQL_Query, new String[]{mSortingKind});
+        if (mSortingStatus.equals("")) {
+            if (!mSortingKind.equals("")) {
+                String SQL_Query;
+                SQL_Query = "SELECT * FROM " + ReminderContract.ReminderTable.TABLE_NAME +
+                        " WHERE " + ReminderContract.ReminderTable.COLUMN_NAME_KIND + " = ? ";
+                cursor = db.rawQuery(SQL_Query, new String[]{mSortingKind});
+            }
+        } else {
+            String SQL_Query;
+            if (!mSortingKind.equals("")) {
+                SQL_Query = "SELECT * FROM " + ReminderContract.ReminderTable.TABLE_NAME +
+                        " WHERE " + ReminderContract.ReminderTable.COLUMN_NAME_KIND + " = ? AND " +
+                        ReminderContract.ReminderTable.COLUMN_NAME_STATUS + " = ?";
+                cursor = db.rawQuery(SQL_Query, new String[]{mSortingKind, mSortingStatus});
+            } else {
+                SQL_Query = "SELECT * FROM " + ReminderContract.ReminderTable.TABLE_NAME +
+                        " WHERE " + ReminderContract.ReminderTable.COLUMN_NAME_STATUS + " = ? ";
+                cursor = db.rawQuery(SQL_Query, new String[]{mSortingStatus});
+            }
         }
+
 
         StringBuffer buffer = new StringBuffer();
         ReminderDataModel reminderDataModel = null;

@@ -53,8 +53,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyHold
 
         RecyclerView.LayoutParams lp = new RecyclerView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
                 ViewGroup.LayoutParams.WRAP_CONTENT);
-        //TODO add this to dimensions and make it 3dp not pixels
-        lp.setMargins(0, 3, 0, 0);
+        lp.setMargins(0, Math.round(parent.getContext().getResources().getDimension(R.dimen.recycler_item_margin)), 0, 0);
         view.setLayoutParams(lp);
 
         return new MyHolder(view);
