@@ -2,4 +2,5 @@
 <resources>
     <dimen name="buttonPadingSize">5dp</dimen>
     <dimen name="recycler_item_margin">1dp</dimen>
+    <dimen name="main_menu_button_size">80dp</dimen>
 </resources>

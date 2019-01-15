@@ -1,6 +1,9 @@
 package com.ahsas.mytodos;
 
+import android.app.AlertDialog;
+import android.app.DialogFragment;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -133,15 +136,30 @@ public class ShowAllRemsActivity extends AppCompatActivity {
 
             @Override
             public void onSwiped(RecyclerView.ViewHolder viewHolder, int direction) {
-                int position = viewHolder.getAdapterPosition();
-                int id = (int) viewHolder.itemView.getTag();
+                final int position = viewHolder.getAdapterPosition();
+                final int mId = (int) viewHolder.itemView.getTag();
                 if (direction == ItemTouchHelper.LEFT){
-                    recycler.removeItem(position);
-                    deleteRowFromDb(id);
-                    Log.d(TAG, "mId = " + Integer.toString(id));
+                    AlertDialog.Builder builder = new AlertDialog.Builder(ShowAllRemsActivity.this);
+                    builder.setMessage(R.string.delete_reminder_alert_message)
+                            .setPositiveButton(R.string.delete_reminder_positive, new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int id) {
+                                    recycler.removeItem(position);
+                                    deleteRowFromDb(mId);
+                                }
+                            })
+                            .setNegativeButton(R.string.delete_reminder_negative, new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int id) {
+                                    // User cancelled the dialog
+                                    dialog.cancel();
+                                }
+                            });
+                    // Create the AlertDialog object and return it
+                    AlertDialog alertDialog = builder.create();
+                    alertDialog.show();
+                    //Log.d(TAG, "mId = " + Integer.toString(id));
                     Log.d(TAG, "Swipe to left active");
                 } else {
-                    updateRemStatusToDone(id);
+                    updateRemStatusToDone(mId);
                     recycler.removeItem(position);
                     Log.d(TAG, "Swipe to other active");
                 }

@@ -67,4 +67,9 @@
     <string name="canceled_status">CANCELED</string>
     <string name="done_status">DONE</string>
 
+    //Delete reminder alert strings
+    <string name="delete_reminder_alert_message">Do you want to remove reminder?</string>
+    <string name="delete_reminder_positive">YES</string>
+    <string name="delete_reminder_negative">NO</string>
+
 </resources>
