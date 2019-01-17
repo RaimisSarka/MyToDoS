@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/spinner_item_textView"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="5dp"
     android:background="@color/colorButtonBackground"
-    android:contentDescription="spinner_item"
+    android:contentDescription="@string/spinner_item_text_view_text"
     android:fontFamily="sans-serif"
     android:padding="10dp"
-    android:text="spinner_item"
+    android:text="@string/spinner_item_text_view_text"
     android:textColor="@color/colorButtonTextColor"
-    android:textSize="20sp" />
+    android:textSize="20sp"
+    tools:text="@string/spinner_item_text_view_text" />

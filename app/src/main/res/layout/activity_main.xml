@@ -18,13 +18,13 @@
         android:layout_marginRight="24dp"
         android:layout_marginBottom="24dp"
         android:background="@drawable/button_layout_not_pressed"
-        android:text="CLOSE APPLICATION"
+        android:text="@string/close_app_button_text"
         android:textColor="@color/colorButtonTextColor"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:text="CLOSE APPLICATION" />
+        tools:text="@string/close_app_button_text" />
 
     <Button
         android:id="@+id/show_month_activity_button"
@@ -36,11 +36,11 @@
         android:layout_marginEnd="24dp"
         android:layout_marginRight="24dp"
         android:background="@drawable/button_layout_not_pressed"
-        android:text="Show Month"
+        android:text="@string/show_month_button_text"
         android:textColor="@color/colorButtonTextColor"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="Show Month" />
+        tools:text="@string/show_month_button_text" />
 </android.support.constraint.ConstraintLayout>

@@ -16,23 +16,22 @@
         android:layout_marginLeft="8dp"
         android:layout_marginTop="16dp"
         android:background="@drawable/button_layout_not_pressed"
-        android:contentDescription="SHOW ALL"
-        android:text="SHOW ALL"
+        android:contentDescription="@string/show_all_rems_button"
+        android:text="@string/show_all_rems_button"
         android:textColor="@color/colorButtonTextColor"
         app:layout_constraintStart_toStartOf="@+id/frameLayoutDateView"
         app:layout_constraintTop_toTopOf="@+id/constraintLayout2"
-        tools:text="SHOW ALL" />
+        tools:text="@string/show_all_rems_button" />
 
     <FrameLayout
         android:id="@+id/frameLayoutDateView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/constraintLayout"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -45,10 +44,10 @@
                 android:id="@+id/frameLayoutPreviousMonth"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
-                android:layout_marginLeft="8dp"
                 android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
                 android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
@@ -58,14 +57,15 @@
                     android:layout_width="80dp"
                     android:layout_height="wrap_content"
                     android:background="@drawable/layout_borders"
+                    android:contentDescription="@string/previous_button_text"
                     android:gravity="center"
                     android:paddingLeft="5dp"
                     android:paddingTop="5dp"
                     android:paddingRight="5dp"
                     android:paddingBottom="5dp"
-                    android:text="@string/textViewPreviousMonth"
+                    android:text="@string/previous_button_text"
                     android:textColor="@color/colorButtonTextColor"
-                    tools:text="@string/textViewPreviousMonth" />
+                    tools:text="@string/previous_button_text" />
             </FrameLayout>
 
             <TextView
@@ -78,8 +78,10 @@
                 android:layout_marginEnd="8dp"
                 android:layout_marginRight="8dp"
                 android:layout_marginBottom="8dp"
+                android:contentDescription="@string/textViewCurrentDate"
                 android:fontFamily="sans-serif"
                 android:padding="2dp"
+                android:text="@string/textViewCurrentDate"
                 android:textColor="@color/colorButtonTextColor"
                 android:textSize="18sp"
                 android:textStyle="bold|italic"
@@ -93,10 +95,10 @@
                 android:id="@+id/frameLayoutNextMonth"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
+                android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginRight="8dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
                 android:padding="0dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -107,14 +109,15 @@
                     android:layout_width="80dp"
                     android:layout_height="wrap_content"
                     android:background="@drawable/layout_borders"
+                    android:contentDescription="@string/next_button_text"
                     android:gravity="center"
                     android:paddingLeft="5dp"
                     android:paddingTop="5dp"
                     android:paddingRight="5dp"
                     android:paddingBottom="5dp"
-                    android:text="@string/textViewNextMonth"
+                    android:text="@string/next_button_text"
                     android:textColor="@color/colorButtonTextColor"
-                    tools:text="@string/textViewNextMonth" />
+                    tools:text="@string/next_button_text" />
             </FrameLayout>
 
         </android.support.constraint.ConstraintLayout>

@@ -6,13 +6,15 @@
 
     <string name="base_date">1970/01/01</string>
 
-    //Date format
+    <string name="logo_image_description">Logo image</string>
+
+    <!-- Date format-->
     <string name="date_format">%1$d/%2$d/%3$d</string>
 
     <string name="channel_name">ToDos channel</string>
     <string name="channel_description">ToDos</string>
 
-    //Month squares
+    <!-- Month squares-->
     <string name="square1">square1</string>
     <string name="square2">square2</string>
     <string name="square3">square3</string>
@@ -56,20 +58,63 @@
     <string name="square41">square35</string>
     <string name="square42">square35</string>
 
-    //textViews tools texts
+    <!-- textViews tools texts-->
     <string name="textViewCurrentDate">November</string>
-    <string name="textViewPreviousMonth">Previous</string>
-    <string name="textViewNextMonth">Next</string>
 
-    //status texts
+    <!-- status texts-->
     <string name="pending_status">PENDING</string>
     <string name="in_progress_status">IN PROGRESS</string>
     <string name="canceled_status">CANCELED</string>
     <string name="done_status">DONE</string>
 
-    //Delete reminder alert strings
+    <!-- Delete reminder alert strings-->
     <string name="delete_reminder_alert_message">Do you want to remove reminder?</string>
     <string name="delete_reminder_positive">YES</string>
     <string name="delete_reminder_negative">NO</string>
 
+    <!-- Activity_main layout strings-->
+    <!-- Button texts-->
+    <string name="show_month_button_text">SHOW MONTH</string>
+    <string name="close_app_button_text">CLOSE APPLICATION</string>
+
+    <!-- Activity_load_month layout strings-->
+    <!-- Button texts-->
+    <string name="previous_button_text">Previous</string>
+    <string name="next_button_text">Next</string>
+    <string name="show_active_rems_button">SHOW ACTIVE</string>
+    <string name="show_closed_rems_button">SHOW CLOSED</string>
+    <string name="show_all_rems_button">SHOW ALL</string>
+
+    <!-- Activity_add_to_do layout strings-->
+    <!-- Title-->
+    <string name="activity_add_to_do_title_text">Add Reminder</string>
+    <!-- Labels-->
+    <string name="start_date_label_text">Start date</string>
+    <string name="finish_date_label_text">Finish date</string>
+    <string name="comment_label_text">Short Comment</string>
+    <!-- Text-->
+    <string name="date_text_field_text">1970/01/01</string>
+    <string name="comment_text_field_text">Comment task...</string>
+
+    <!-- KIND selection menu texts-->
+    <!-- Button texts-->
+    <string name="job_kind_button_text">JOB</string>
+    <string name="home_kind_button_text">HOME</string>
+    <string name="other_kind_button_text">OTHER</string>
+    <string name="add_button_text">ADD</string>
+
+    <!-- rem_item_view strings-->
+    <!-- Texts-->
+    <string name="show_kind_text_view_text">KIND</string>
+    <string name="show_title_text_view_text">TITLE</string>
+    <string name="show_comment_text_view_text">COMMENT</string>
+    <string name="show_date_text_view_text">SHOW DATE</string>
+    <string name="show_status_text_view_text">STATUS</string>
+    <!-- Label texts-->
+    <string name="show_start_date_label_text">START DATE:</string>
+    <string name="show_finish_date_label_text">FINISH DATE:</string>
+
+    <!-- spinner_item_view strings-->
+    <!-- Texts-->
+    <string name="spinner_item_text_view_text">spinner item</string>
 </resources>

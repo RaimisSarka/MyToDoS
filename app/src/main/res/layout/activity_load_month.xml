@@ -17,13 +17,13 @@
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:background="@drawable/button_layout_not_pressed"
-        android:contentDescription="SHOW CLOSED"
-        android:text="SHOW CLOSED"
+        android:contentDescription="@string/show_closed_rems_button"
+        android:text="@string/show_closed_rems_button"
         android:textColor="@color/colorButtonTextColor"
         app:layout_constraintEnd_toStartOf="@+id/show_all_button"
         app:layout_constraintStart_toEndOf="@+id/show_not_done_button"
         app:layout_constraintTop_toTopOf="@+id/show_not_done_button"
-        tools:text="SHOW CLOSED" />
+        tools:text="@string/show_closed_rems_button" />
 
     <Button
         android:id="@+id/show_not_done_button"
@@ -33,12 +33,12 @@
         android:layout_marginLeft="16dp"
         android:layout_marginTop="16dp"
         android:background="@drawable/button_layout_not_pressed"
-        android:contentDescription="SHOW ACTIVE"
-        android:text="SHOW ACTIVE"
+        android:contentDescription="@string/show_active_rems_button"
+        android:text="@string/show_active_rems_button"
         android:textColor="@color/colorButtonTextColor"
         app:layout_constraintStart_toStartOf="@+id/constraintLayout"
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
-        tools:text="SHOW ACTIVE" />
+        tools:text="@string/show_active_rems_button" />
 
     <Button
         android:id="@+id/show_all_button"
@@ -47,12 +47,12 @@
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
         android:background="@drawable/button_layout_not_pressed"
-        android:contentDescription="SHOW ALL"
-        android:text="SHOW ALL"
+        android:contentDescription="@string/show_all_rems_button"
+        android:text="@string/show_all_rems_button"
         android:textColor="@color/colorButtonTextColor"
         app:layout_constraintEnd_toEndOf="@+id/constraintLayout"
         app:layout_constraintTop_toTopOf="@+id/show_closed_button"
-        tools:text="SHOW ALL" />
+        tools:text="@string/show_all_rems_button" />
 
     <FrameLayout
         android:id="@+id/frameLayoutDateView"
@@ -94,9 +94,9 @@
                     android:paddingTop="5dp"
                     android:paddingRight="5dp"
                     android:paddingBottom="5dp"
-                    android:text="@string/textViewPreviousMonth"
+                    android:text="@string/previous_button_text"
                     android:textColor="@color/colorButtonTextColor"
-                    tools:text="@string/textViewPreviousMonth" />
+                    tools:text="@string/previous_button_text" />
             </FrameLayout>
 
             <TextView
@@ -142,9 +142,9 @@
                     android:paddingTop="5dp"
                     android:paddingRight="5dp"
                     android:paddingBottom="5dp"
-                    android:text="@string/textViewNextMonth"
+                    android:text="@string/next_button_text"
                     android:textColor="@color/colorButtonTextColor"
-                    tools:text="@string/textViewNextMonth" />
+                    tools:text="@string/next_button_text" />
             </FrameLayout>
 
         </android.support.constraint.ConstraintLayout>

@@ -32,9 +32,10 @@
             android:layout_margin="3dp"
             android:layout_weight="0.3"
             android:background="@drawable/button_layout_not_pressed"
-            android:text="JOB"
+            android:contentDescription="@string/job_kind_button_text"
+            android:text="@string/job_kind_button_text"
             android:textColor="@color/colorButtonTextColor"
-            tools:text="JOB" />
+            tools:text="@string/job_kind_button_text" />
 
         <Button
             android:id="@+id/sort_by_home_type_button2"
@@ -43,9 +44,10 @@
             android:layout_margin="3dp"
             android:layout_weight="0.3"
             android:background="@drawable/button_layout_not_pressed"
-            android:text="HOME"
+            android:contentDescription="@string/home_kind_button_text"
+            android:text="@string/home_kind_button_text"
             android:textColor="@color/colorButtonTextColor"
-            tools:text="HOME" />
+            tools:text="@string/home_kind_button_text" />
 
         <Button
             android:id="@+id/sort_by_other_type_button"
@@ -54,9 +56,10 @@
             android:layout_margin="3dp"
             android:layout_weight="0.3"
             android:background="@drawable/button_layout_not_pressed"
-            android:text="OTHER"
+            android:contentDescription="@string/other_kind_button_text"
+            android:text="@string/other_kind_button_text"
             android:textColor="@color/colorButtonTextColor"
-            tools:text="OTHER" />
+            tools:text="@string/other_kind_button_text" />
 
     </LinearLayout>
 
