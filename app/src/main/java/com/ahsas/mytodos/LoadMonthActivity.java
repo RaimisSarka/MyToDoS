@@ -230,10 +230,25 @@ public class LoadMonthActivity extends AppCompatActivity {
     }
 
     @Override
+    protected void onStop() {
+        super.onStop();
+        Log.d(TAG, "onStop");
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        Log.d(TAG, "onRestart");
+    }
+
+    @Override
     protected void onResume() {
         super.onResume();
-        Log.d(TAG, "unResume");
-        Log.d(TAG, "monthToShow" + String.valueOf(mMonthToShow));
+        Log.d(TAG, "onResume");
+        dataModelArray = getRemsData();
+        loadImageViews();
+        loadCountViews();
+        loadDaysToday();
     }
 
     public void loadDaysToday(){
