@@ -7,6 +7,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
@@ -28,9 +30,14 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.ahsas.mytodos.dbConnection.ReminderContract;
+import com.ahsas.mytodos.dbConnection.ReminderDbHelper;
+
 import java.time.YearMonth;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
 public class LoadMonthActivity extends AppCompatActivity {
 
@@ -38,6 +45,7 @@ public class LoadMonthActivity extends AppCompatActivity {
     private static final int NOTIFICATION_ID = 777;
 
     private String[] mMonths;
+    List<ReminderDataModel> dataModelArray = new ArrayList<ReminderDataModel>();
     private static String TAG = "debugInformation";
 
 
@@ -52,6 +60,7 @@ public class LoadMonthActivity extends AppCompatActivity {
 
 
     public TextView[] mSquares = new TextView[43];
+    public TextView[] mRemCounts = new TextView[43];
     //public int[] mDaysBitmaps = new int[32];
 
 
@@ -61,7 +70,9 @@ public class LoadMonthActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_load_month);
 
+        dataModelArray = getRemsData();
         loadImageViews();
+        loadCountViews();
         loadDaysToday();
         //TODO create logic of notification
         //sendNotification();
@@ -258,6 +269,8 @@ public class LoadMonthActivity extends AppCompatActivity {
         for (int i=1; i<43; i++){
             mSquares[i].setText("");
             mSquares[i].setBackgroundColor(getResources().getColor(R.color.colorButtonBackground));
+            mRemCounts[i].setText("");
+            mRemCounts[i].setVisibility(View.INVISIBLE);
         }
 
         //Make first day of week - monday
@@ -275,6 +288,14 @@ public class LoadMonthActivity extends AppCompatActivity {
         //Set values to squares
         for (int i=1; i<=mDaysInMonth; i++){
             final int mDay = i;
+            int mCount = getReminderCount(i);
+            if (mCount > 0) {
+                //TODO set counters visibility
+                Log.d(TAG, "Count: not null" );
+                mRemCounts[i+mFirstOfMonthIsDayOfWeek-1].setText(String.valueOf(mCount));
+                mRemCounts[i+mFirstOfMonthIsDayOfWeek-1].setVisibility(View.VISIBLE);
+
+            }
             mSquares[i+mFirstOfMonthIsDayOfWeek-1].setText(Integer.toString(i));
             mSquares[i+mFirstOfMonthIsDayOfWeek-1].setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -289,6 +310,22 @@ public class LoadMonthActivity extends AppCompatActivity {
             });
         }
 
+    }
+
+    public int getReminderCount(int dayNumber){
+        int count = 0;
+        int i = 0;
+        String mDate = String.valueOf(mYearToShow)+"/"+String.valueOf(mMonthToShow+1)+"/"+String.valueOf(dayNumber);
+        if (!dataModelArray.isEmpty()){
+            for (i=0; i<dataModelArray.size(); i++){
+                String mRemsStatus = dataModelArray.get(i).mStatus;
+                String mRemsFinishDate = dataModelArray.get(i).mFinishDate;
+                if ((mDate.equals(mRemsFinishDate) && mRemsStatus.equals("0"))){
+                    count++;
+                }
+            }
+        }
+        return count;
     }
 
     public void sendNotification(){
@@ -317,6 +354,45 @@ public class LoadMonthActivity extends AppCompatActivity {
         }
 
     }
+
+    public List<ReminderDataModel> getRemsData(){
+        List<ReminderDataModel> data = new ArrayList<>();
+
+        ReminderDbHelper dbHelper = new ReminderDbHelper(this);
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+
+        Cursor cursor = db.rawQuery("SELECT * FROM " + ReminderContract.ReminderTable.TABLE_NAME + ";", null);
+
+        StringBuffer buffer = new StringBuffer();
+        ReminderDataModel reminderDataModel = null;
+
+        while (cursor.moveToNext()) {
+            reminderDataModel= new ReminderDataModel();
+            int mId = cursor.getInt(cursor.getColumnIndexOrThrow("_id"));
+            String mKind = cursor.getString(cursor.getColumnIndexOrThrow(ReminderContract.ReminderTable.COLUMN_NAME_KIND));
+            String mTitle = cursor.getString(cursor.getColumnIndexOrThrow(ReminderContract.ReminderTable.COLUMN_NAME_TITLE));
+            String mStartDate = cursor.getString(cursor.getColumnIndexOrThrow(ReminderContract.ReminderTable.COLUMN_NAME_START_DATE));
+            String mFinishDate = cursor.getString(cursor.getColumnIndexOrThrow(ReminderContract.ReminderTable.COLUMN_NAME_FINISH_DATE));
+            String mComment = cursor.getString(cursor.getColumnIndexOrThrow(ReminderContract.ReminderTable.COLUMN_NAME_COMMENT));
+            String mStatus = cursor.getString(cursor.getColumnIndexOrThrow(ReminderContract.ReminderTable.COLUMN_NAME_STATUS));
+
+            reminderDataModel.setId(mId);
+            reminderDataModel.setKind(mKind);
+            reminderDataModel.setTitle(mTitle);
+            reminderDataModel.setStartDate(mStartDate);
+            reminderDataModel.setFinishDate(mFinishDate);
+            reminderDataModel.setComment(mComment);
+            reminderDataModel.setStatus(mStatus);
+
+            buffer.append(reminderDataModel);
+            // stringBuffer.append(dataModel);
+            data.add(reminderDataModel);
+        }
+
+        db.close();
+        return data;
+    }
+
 
     public void loadImageViews(){
         mSquares[1] = (TextView) findViewById(R.id.TextViewSquare1);
@@ -366,6 +442,57 @@ public class LoadMonthActivity extends AppCompatActivity {
         mSquares[40] = (TextView) findViewById(R.id.TextViewSquare40);
         mSquares[41] = (TextView) findViewById(R.id.TextViewSquare41);
         mSquares[42] = (TextView) findViewById(R.id.TextViewSquare42);
+
+    }
+
+    public void loadCountViews(){
+        mRemCounts[1] = (TextView) findViewById(R.id.TextViewSquare1_counter);
+        mRemCounts[2] = (TextView) findViewById(R.id.TextViewSquare2_counter);
+        mRemCounts[3] = (TextView) findViewById(R.id.TextViewSquare3_counter);
+        mRemCounts[4] = (TextView) findViewById(R.id.TextViewSquare4_counter);
+        mRemCounts[5] = (TextView) findViewById(R.id.TextViewSquare5_counter);
+        mRemCounts[6] = (TextView) findViewById(R.id.TextViewSquare6_counter);
+        mRemCounts[7] = (TextView) findViewById(R.id.TextViewSquare7_counter);
+
+        mRemCounts[8] = (TextView) findViewById(R.id.TextViewSquare8_counter);
+        mRemCounts[9] = (TextView) findViewById(R.id.TextViewSquare9_counter);
+        mRemCounts[10] = (TextView) findViewById(R.id.TextViewSquare10_counter);
+        mRemCounts[11] = (TextView) findViewById(R.id.TextViewSquare11_counter);
+        mRemCounts[12] = (TextView) findViewById(R.id.TextViewSquare12_counter);
+        mRemCounts[13] = (TextView) findViewById(R.id.TextViewSquare13_counter);
+        mRemCounts[14] = (TextView) findViewById(R.id.TextViewSquare14_counter);
+
+        mRemCounts[15] = (TextView) findViewById(R.id.TextViewSquare15_counter);
+        mRemCounts[16] = (TextView) findViewById(R.id.TextViewSquare16_counter);
+        mRemCounts[17] = (TextView) findViewById(R.id.TextViewSquare17_counter);
+        mRemCounts[18] = (TextView) findViewById(R.id.TextViewSquare18_counter);
+        mRemCounts[19] = (TextView) findViewById(R.id.TextViewSquare19_counter);
+        mRemCounts[20] = (TextView) findViewById(R.id.TextViewSquare20_counter);
+        mRemCounts[21] = (TextView) findViewById(R.id.TextViewSquare21_counter);
+
+        mRemCounts[22] = (TextView) findViewById(R.id.TextViewSquare22_counter);
+        mRemCounts[23] = (TextView) findViewById(R.id.TextViewSquare23_counter);
+        mRemCounts[24] = (TextView) findViewById(R.id.TextViewSquare24_counter);
+        mRemCounts[25] = (TextView) findViewById(R.id.TextViewSquare25_counter);
+        mRemCounts[26] = (TextView) findViewById(R.id.TextViewSquare26_counter);
+        mRemCounts[27] = (TextView) findViewById(R.id.TextViewSquare27_counter);
+        mRemCounts[28] = (TextView) findViewById(R.id.TextViewSquare28_counter);
+
+        mRemCounts[29] = (TextView) findViewById(R.id.TextViewSquare29_counter);
+        mRemCounts[30] = (TextView) findViewById(R.id.TextViewSquare30_counter);
+        mRemCounts[31] = (TextView) findViewById(R.id.TextViewSquare31_counter);
+        mRemCounts[32] = (TextView) findViewById(R.id.TextViewSquare32_counter);
+        mRemCounts[33] = (TextView) findViewById(R.id.TextViewSquare33_counter);
+        mRemCounts[34] = (TextView) findViewById(R.id.TextViewSquare34_counter);
+        mRemCounts[35] = (TextView) findViewById(R.id.TextViewSquare35_counter);
+
+        mRemCounts[36] = (TextView) findViewById(R.id.TextViewSquare36_counter);
+        mRemCounts[37] = (TextView) findViewById(R.id.TextViewSquare37_counter);
+        mRemCounts[38] = (TextView) findViewById(R.id.TextViewSquare38_counter);
+        mRemCounts[39] = (TextView) findViewById(R.id.TextViewSquare39_counter);
+        mRemCounts[40] = (TextView) findViewById(R.id.TextViewSquare40_counter);
+        mRemCounts[41] = (TextView) findViewById(R.id.TextViewSquare41_counter);
+        mRemCounts[42] = (TextView) findViewById(R.id.TextViewSquare42_counter);
 
     }
 }

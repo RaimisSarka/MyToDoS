@@ -185,33 +185,85 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
-            <TextView
-                android:id="@+id/TextViewSquare1"
-                style="@style/DayButtonStyle"/>
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
 
-            <TextView
-                android:id="@+id/TextViewSquare2"
-                style="@style/DayButtonStyle" />
+                <TextView
+                    android:id="@+id/TextViewSquare1"
+                    style="@style/DayButtonStyle"
+                    android:layout_gravity="top"/>
 
+                <TextView
+                    android:id="@+id/TextViewSquare1_counter"
+                    style="@style/RemsCounterStyle"/>
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/TextViewSquare2"
+                    style="@style/DayButtonStyle" />
+                <TextView
+                    android:id="@+id/TextViewSquare2_counter"
+                    style="@style/RemsCounterStyle" />
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
             <TextView
                 android:id="@+id/TextViewSquare3"
                 style="@style/DayButtonStyle" />
+                <TextView
+                    android:id="@+id/TextViewSquare3_counter"
+                    style="@style/RemsCounterStyle"/>
+            </FrameLayout>
 
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
             <TextView
                 android:id="@+id/TextViewSquare4"
                 style="@style/DayButtonStyle" />
+                <TextView
+                    android:id="@+id/TextViewSquare4_counter"
+                    style="@style/RemsCounterStyle"/>
+            </FrameLayout>
 
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
             <TextView
                 android:id="@+id/TextViewSquare5"
                 style="@style/DayButtonStyle" />
+                <TextView
+                    android:id="@+id/TextViewSquare5_counter"
+                    style="@style/RemsCounterStyle"/>
+            </FrameLayout>
 
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
             <TextView
                 android:id="@+id/TextViewSquare6"
                 style="@style/DayButtonStyle" />
+                <TextView
+                    android:id="@+id/TextViewSquare6_counter"
+                    style="@style/RemsCounterStyle"/>
+            </FrameLayout>
 
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
             <TextView
                 android:id="@+id/TextViewSquare7"
                 style="@style/DayButtonStyle" />
+                <TextView
+                    android:id="@+id/TextViewSquare7_counter"
+                    style="@style/RemsCounterStyle"/>
+            </FrameLayout>
 
         </LinearLayout>
 
@@ -233,33 +285,82 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/linearLayoutSquaresRow1">
 
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
             <TextView
                 android:id="@+id/TextViewSquare8"
                 style="@style/DayButtonStyle" />
+                <TextView
+                    android:id="@+id/TextViewSquare8_counter"
+                    style="@style/RemsCounterStyle"/>
+            </FrameLayout>
 
-            <TextView
-                android:id="@+id/TextViewSquare9"
-                style="@style/DayButtonStyle" />
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/TextViewSquare9"
+                    style="@style/DayButtonStyle" />
+                <TextView
+                    android:id="@+id/TextViewSquare9_counter"
+                    style="@style/RemsCounterStyle"/>
+            </FrameLayout>
 
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
             <TextView
                 android:id="@+id/TextViewSquare10"
                 style="@style/DayButtonStyle" />
+                <TextView
+                    android:id="@+id/TextViewSquare10_counter"
+                    style="@style/RemsCounterStyle"/>
+            </FrameLayout>
 
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
             <TextView
                 android:id="@+id/TextViewSquare11"
                 style="@style/DayButtonStyle" />
+                <TextView
+                    android:id="@+id/TextViewSquare11_counter"
+                    style="@style/RemsCounterStyle"/>
+            </FrameLayout>
 
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
             <TextView
                 android:id="@+id/TextViewSquare12"
                 style="@style/DayButtonStyle" />
+                <TextView
+                    android:id="@+id/TextViewSquare12_counter"
+                    style="@style/RemsCounterStyle"/>
+            </FrameLayout>
 
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
             <TextView
                 android:id="@+id/TextViewSquare13"
                 style="@style/DayButtonStyle" />
+                <TextView
+                    android:id="@+id/TextViewSquare13_counter"
+                    style="@style/RemsCounterStyle"/>
+            </FrameLayout>
 
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
             <TextView
                 android:id="@+id/TextViewSquare14"
                 style="@style/DayButtonStyle" />
+                <TextView
+                    android:id="@+id/TextViewSquare14_counter"
+                    style="@style/RemsCounterStyle"/>
+            </FrameLayout>
 
         </LinearLayout>
 
@@ -281,33 +382,82 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/linearLayoutSquaresRow2">
 
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
             <TextView
                 android:id="@+id/TextViewSquare15"
                 style="@style/DayButtonStyle" />
+                <TextView
+                    android:id="@+id/TextViewSquare15_counter"
+                    style="@style/RemsCounterStyle"/>
+            </FrameLayout>
 
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
             <TextView
                 android:id="@+id/TextViewSquare16"
                 style="@style/DayButtonStyle" />
+                <TextView
+                    android:id="@+id/TextViewSquare16_counter"
+                    style="@style/RemsCounterStyle"/>
+            </FrameLayout>
 
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
             <TextView
                 android:id="@+id/TextViewSquare17"
                 style="@style/DayButtonStyle" />
+                <TextView
+                    android:id="@+id/TextViewSquare17_counter"
+                    style="@style/RemsCounterStyle"/>
+            </FrameLayout>
 
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
             <TextView
                 android:id="@+id/TextViewSquare18"
                 style="@style/DayButtonStyle" />
+                <TextView
+                    android:id="@+id/TextViewSquare18_counter"
+                    style="@style/RemsCounterStyle"/>
+            </FrameLayout>
 
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
             <TextView
                 android:id="@+id/TextViewSquare19"
                 style="@style/DayButtonStyle" />
+                <TextView
+                    android:id="@+id/TextViewSquare19_counter"
+                    style="@style/RemsCounterStyle"/>
+            </FrameLayout>
 
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
             <TextView
                 android:id="@+id/TextViewSquare20"
                 style="@style/DayButtonStyle" />
+                <TextView
+                    android:id="@+id/TextViewSquare20_counter"
+                    style="@style/RemsCounterStyle"/>
+            </FrameLayout>
 
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
             <TextView
                 android:id="@+id/TextViewSquare21"
                 style="@style/DayButtonStyle" />
+                <TextView
+                    android:id="@+id/TextViewSquare21_counter"
+                    style="@style/RemsCounterStyle"/>
+            </FrameLayout>
 
         </LinearLayout>
 
@@ -329,33 +479,82 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/linearLayoutSquaresRow3">
 
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
             <TextView
                 android:id="@+id/TextViewSquare22"
                 style="@style/DayButtonStyle" />
+                <TextView
+                    android:id="@+id/TextViewSquare22_counter"
+                    style="@style/RemsCounterStyle"/>
+            </FrameLayout>
 
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
             <TextView
                 android:id="@+id/TextViewSquare23"
                 style="@style/DayButtonStyle" />
+                <TextView
+                    android:id="@+id/TextViewSquare23_counter"
+                    style="@style/RemsCounterStyle"/>
+            </FrameLayout>
 
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
             <TextView
                 android:id="@+id/TextViewSquare24"
                 style="@style/DayButtonStyle" />
+                <TextView
+                    android:id="@+id/TextViewSquare24_counter"
+                    style="@style/RemsCounterStyle"/>
+            </FrameLayout>
 
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
             <TextView
                 android:id="@+id/TextViewSquare25"
                 style="@style/DayButtonStyle" />
+                <TextView
+                    android:id="@+id/TextViewSquare25_counter"
+                    style="@style/RemsCounterStyle"/>
+            </FrameLayout>
 
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
             <TextView
                 android:id="@+id/TextViewSquare26"
                 style="@style/DayButtonStyle" />
+                <TextView
+                    android:id="@+id/TextViewSquare26_counter"
+                    style="@style/RemsCounterStyle"/>
+            </FrameLayout>
 
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
             <TextView
                 android:id="@+id/TextViewSquare27"
                 style="@style/DayButtonStyle" />
+                <TextView
+                    android:id="@+id/TextViewSquare27_counter"
+                    style="@style/RemsCounterStyle"/>
+            </FrameLayout>
 
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
             <TextView
                 android:id="@+id/TextViewSquare28"
                 style="@style/DayButtonStyle" />
+                <TextView
+                    android:id="@+id/TextViewSquare28_counter"
+                    style="@style/RemsCounterStyle"/>
+            </FrameLayout>
 
         </LinearLayout>
 
@@ -377,33 +576,82 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/linearLayoutSquaresRow4">
 
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
             <TextView
                 android:id="@+id/TextViewSquare29"
                 style="@style/DayButtonStyle" />
+                <TextView
+                    android:id="@+id/TextViewSquare29_counter"
+                    style="@style/RemsCounterStyle"/>
+            </FrameLayout>
 
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
             <TextView
                 android:id="@+id/TextViewSquare30"
                 style="@style/DayButtonStyle" />
+                <TextView
+                    android:id="@+id/TextViewSquare30_counter"
+                    style="@style/RemsCounterStyle"/>
+            </FrameLayout>
 
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
             <TextView
                 android:id="@+id/TextViewSquare31"
                 style="@style/DayButtonStyle" />
+                <TextView
+                    android:id="@+id/TextViewSquare31_counter"
+                    style="@style/RemsCounterStyle"/>
+            </FrameLayout>
 
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
             <TextView
                 android:id="@+id/TextViewSquare32"
                 style="@style/DayButtonStyle" />
+                <TextView
+                    android:id="@+id/TextViewSquare32_counter"
+                    style="@style/RemsCounterStyle"/>
+            </FrameLayout>
 
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
             <TextView
                 android:id="@+id/TextViewSquare33"
                 style="@style/DayButtonStyle" />
+                <TextView
+                    android:id="@+id/TextViewSquare33_counter"
+                    style="@style/RemsCounterStyle"/>
+            </FrameLayout>
 
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
             <TextView
                 android:id="@+id/TextViewSquare34"
                 style="@style/DayButtonStyle" />
+                <TextView
+                    android:id="@+id/TextViewSquare34_counter"
+                    style="@style/RemsCounterStyle"/>
+            </FrameLayout>
 
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
             <TextView
                 android:id="@+id/TextViewSquare35"
                 style="@style/DayButtonStyle" />
+                <TextView
+                    android:id="@+id/TextViewSquare35_counter"
+                    style="@style/RemsCounterStyle"/>
+            </FrameLayout>
 
         </LinearLayout>
 
@@ -427,33 +675,82 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/linearLayoutSquaresRow5">
 
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
             <TextView
                 android:id="@+id/TextViewSquare36"
                 style="@style/DayButtonStyle" />
+                <TextView
+                    android:id="@+id/TextViewSquare36_counter"
+                    style="@style/RemsCounterStyle"/>
+            </FrameLayout>
 
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
             <TextView
                 android:id="@+id/TextViewSquare37"
                 style="@style/DayButtonStyle" />
+                <TextView
+                    android:id="@+id/TextViewSquare37_counter"
+                    style="@style/RemsCounterStyle"/>
+            </FrameLayout>
 
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
             <TextView
                 android:id="@+id/TextViewSquare38"
                 style="@style/DayButtonStyle" />
+                <TextView
+                    android:id="@+id/TextViewSquare38_counter"
+                    style="@style/RemsCounterStyle"/>
+            </FrameLayout>
 
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
             <TextView
                 android:id="@+id/TextViewSquare39"
                 style="@style/DayButtonStyle" />
+                <TextView
+                    android:id="@+id/TextViewSquare39_counter"
+                    style="@style/RemsCounterStyle"/>
+            </FrameLayout>
 
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
             <TextView
                 android:id="@+id/TextViewSquare40"
                 style="@style/DayButtonStyle" />
+                <TextView
+                    android:id="@+id/TextViewSquare40_counter"
+                    style="@style/RemsCounterStyle"/>
+            </FrameLayout>
 
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
             <TextView
                 android:id="@+id/TextViewSquare41"
                 style="@style/DayButtonStyle" />
+                <TextView
+                    android:id="@+id/TextViewSquare41_counter"
+                    style="@style/RemsCounterStyle"/>
+            </FrameLayout>
 
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
             <TextView
                 android:id="@+id/TextViewSquare42"
                 style="@style/DayButtonStyle" />
+                <TextView
+                    android:id="@+id/TextViewSquare42_counter"
+                    style="@style/RemsCounterStyle"/>
+            </FrameLayout>
 
         </LinearLayout>
 

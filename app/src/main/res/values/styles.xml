@@ -48,4 +48,19 @@
         <item name="android:textStyle">bold|italic</item>
     </style>
 
+    <style name="RemsCounterStyle">
+        <item name="android:visibility">invisible</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">end</item>
+        <item name="android:height">18dp</item>
+        <item name="android:width">21dp</item>
+        <item name="android:layout_marginTop">5dp</item>
+        <item name="android:background">@drawable/rem_count_layout</item>
+        <item name="android:text">10</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:textColor">@color/colorButtonTextColor</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
 </resources>
