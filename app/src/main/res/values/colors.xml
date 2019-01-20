@@ -11,7 +11,7 @@
     <color name="colorButtonRemoveBackground">#FF4081</color>
     <color name="colorButtonBackgroundOnClick">#009900</color>
     <color name="colorTodayButton">#009900</color>
-    <color name="colorButtonTextColor">#dddddd</color>
+    <color name="colorButtonTextColor">#DDDDDD</color>
     <color name="colorCommentTextColor">#ffaaaa</color>
     <color name="colorPendingLabel">#FFaaaa</color>
     <color name="colorDoneLabel">#00ff00</color>

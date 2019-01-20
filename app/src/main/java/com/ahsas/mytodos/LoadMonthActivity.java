@@ -106,6 +106,7 @@ public class LoadMonthActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(getBaseContext(), ShowAllRemsActivity.class);
                 intent.putExtra("sortByStatus", "0");
+                intent.putExtra("sortByFinishDate", "");
                 startActivity(intent);
             }
         });
@@ -115,6 +116,7 @@ public class LoadMonthActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(getBaseContext(), ShowAllRemsActivity.class);
                 intent.putExtra("sortByStatus", "3");
+                intent.putExtra("sortByFinishDate", "");
                 startActivity(intent);
             }
         });
@@ -316,7 +318,7 @@ public class LoadMonthActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     Log.d(TAG, mDay + " day");
-                    Intent intent = new Intent(getBaseContext(), AddToDo.class);
+                    Intent intent = new Intent(getBaseContext(), ChoseActionActivity.class);
                     intent.putExtra("day", mDay);
                     intent.putExtra("years", mYearToShow);
                     intent.putExtra("month", mMonthToShow + 1);

@@ -9,6 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_todos_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,11 +23,10 @@
                 <category android:name="android.intent.category.BROWSABLE" />
 
                 <data
-                    android:scheme="http"
-                    android:host="www.mytodos.com" />
+                    android:host="www.mytodos.com"
+                    android:scheme="http" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".StartLogoActivity"
             android:label="@string/title_activity_start_logo"
@@ -35,7 +35,6 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
         </activity>
-
         <activity
             android:name=".LoadMonthActivity"
             android:label="@string/title_activity_load_month"
@@ -44,7 +43,6 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
         </activity>
-
         <activity
             android:name=".AddToDo"
             android:label="@string/title_activity_add_to_do"
@@ -53,9 +51,16 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".LoadMonthActivity" />
         </activity>
-
         <activity
             android:name=".ShowAllRemsActivity"
+            android:label=""
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".LoadMonthActivity" />
+        </activity>
+
+        <activity android:name=".ChoseActionActivity"
             android:label=""
             android:screenOrientation="portrait">
             <meta-data
@@ -68,5 +73,7 @@
             android:resource="@array/preloaded_fonts" />
 
     </application>
+
+
 
 </manifest>

@@ -96,6 +96,15 @@
     <string name="date_text_field_text">1970/01/01</string>
     <string name="comment_text_field_text">Comment task...</string>
 
+    <!-- Activity_choose_action layout strings-->
+    <!-- Title-->
+    <string name="activity_choose_action_title_text">Choose action</string>
+    <!-- Button texts-->
+    <string name="add_new_reminder_button_text">ADD NEW...</string>
+    <string name="show_rems_by_date_button_text">SHOW REMINDERS</string>
+    <!-- Text-->
+    <string name="chose_action_date_text_field_text">1970/01/01</string>
+
     <!-- KIND selection menu texts-->
     <!-- Button texts-->
     <string name="job_kind_button_text">JOB</string>

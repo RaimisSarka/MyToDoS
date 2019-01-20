@@ -41,6 +41,7 @@ public class ShowAllRemsActivity extends AppCompatActivity {
 
     private String mSortingKind = "";
     private String mSortingStatus = "";
+    private String mSortingDate = "";
 
     List<ReminderDataModel> dataModelArray = new ArrayList<ReminderDataModel>();
 
@@ -100,11 +101,14 @@ public class ShowAllRemsActivity extends AppCompatActivity {
             Bundle extras = getIntent().getExtras();
             if (extras == null){
                 mSortingStatus = "";
+                mSortingDate = "";
             } else {
                 mSortingStatus = extras.getString("sortByStatus");
+                mSortingDate = extras.getString("sortByFinishDate");
             }
         } else {
             mSortingStatus = (String) sis.getSerializable("sortByStatus");
+            mSortingDate = (String) sis.getSerializable("sortByFinishDate");
         }
     }
 
@@ -228,14 +232,30 @@ public class ShowAllRemsActivity extends AppCompatActivity {
         } else {
             String SQL_Query;
             if (!mSortingKind.equals("")) {
-                SQL_Query = "SELECT * FROM " + ReminderContract.ReminderTable.TABLE_NAME +
-                        " WHERE " + ReminderContract.ReminderTable.COLUMN_NAME_KIND + " = ? AND " +
-                        ReminderContract.ReminderTable.COLUMN_NAME_STATUS + " = ?";
-                cursor = db.rawQuery(SQL_Query, new String[]{mSortingKind, mSortingStatus});
+                if (mSortingDate.equals("")) {
+                    SQL_Query = "SELECT * FROM " + ReminderContract.ReminderTable.TABLE_NAME +
+                            " WHERE " + ReminderContract.ReminderTable.COLUMN_NAME_KIND + " = ? AND " +
+                            ReminderContract.ReminderTable.COLUMN_NAME_STATUS + " = ?";
+                    cursor = db.rawQuery(SQL_Query, new String[]{mSortingKind, mSortingStatus});
+                } else {
+                    SQL_Query = "SELECT * FROM " + ReminderContract.ReminderTable.TABLE_NAME +
+                            " WHERE " + ReminderContract.ReminderTable.COLUMN_NAME_KIND + " = ? AND " +
+                            ReminderContract.ReminderTable.COLUMN_NAME_STATUS + " = ? AND " +
+                            ReminderContract.ReminderTable.COLUMN_NAME_FINISH_DATE + " = ?";
+                    cursor = db.rawQuery(SQL_Query, new String[]{mSortingKind, mSortingStatus, mSortingDate});
+                }
+
             } else {
-                SQL_Query = "SELECT * FROM " + ReminderContract.ReminderTable.TABLE_NAME +
-                        " WHERE " + ReminderContract.ReminderTable.COLUMN_NAME_STATUS + " = ? ";
-                cursor = db.rawQuery(SQL_Query, new String[]{mSortingStatus});
+                if (mSortingDate.equals("")) {
+                    SQL_Query = "SELECT * FROM " + ReminderContract.ReminderTable.TABLE_NAME +
+                            " WHERE " + ReminderContract.ReminderTable.COLUMN_NAME_STATUS + " = ? ";
+                    cursor = db.rawQuery(SQL_Query, new String[]{mSortingStatus});
+                } else {
+                    SQL_Query = "SELECT * FROM " + ReminderContract.ReminderTable.TABLE_NAME +
+                            " WHERE " + ReminderContract.ReminderTable.COLUMN_NAME_STATUS + " = ? AND " +
+                            ReminderContract.ReminderTable.COLUMN_NAME_FINISH_DATE + " = ?";
+                    cursor = db.rawQuery(SQL_Query, new String[]{mSortingStatus, mSortingDate});
+                }
             }
         }
 
