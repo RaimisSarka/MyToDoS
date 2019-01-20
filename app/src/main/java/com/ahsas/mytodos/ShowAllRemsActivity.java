@@ -43,7 +43,7 @@ public class ShowAllRemsActivity extends AppCompatActivity {
     private String mSortingStatus = "";
     private String mSortingDate = "";
 
-    List<ReminderDataModel> dataModelArray = new ArrayList<ReminderDataModel>();
+    List<ReminderDataModel> dataModelArray = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,9 +52,9 @@ public class ShowAllRemsActivity extends AppCompatActivity {
 
         loadExtras(savedInstanceState);
 
-        final Button mSortByJobButton = (Button) findViewById(R.id.sort_by_job_type_button);
-        final Button mSortByHomeButton = (Button) findViewById(R.id.sort_by_home_type_button2);
-        final Button mSortByOtherButton = (Button) findViewById(R.id.sort_by_other_type_button);
+        final Button mSortByJobButton = findViewById(R.id.sort_by_job_type_button);
+        final Button mSortByHomeButton = findViewById(R.id.sort_by_home_type_button2);
+        final Button mSortByOtherButton = findViewById(R.id.sort_by_other_type_button);
 
         mSortByJobButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -121,7 +121,7 @@ public class ShowAllRemsActivity extends AppCompatActivity {
     }
 
     public void setRecyclerView(){
-        final RecyclerView recyclerView = (RecyclerView) findViewById(R.id.show_all_recyclerView);
+        final RecyclerView recyclerView = findViewById(R.id.show_all_recyclerView);
         dataModelArray = getRemsData();
         final RecyclerAdapter recycler = new RecyclerAdapter(dataModelArray);
 
@@ -260,8 +260,8 @@ public class ShowAllRemsActivity extends AppCompatActivity {
         }
 
 
-        StringBuffer buffer = new StringBuffer();
-        ReminderDataModel reminderDataModel = null;
+        StringBuilder buffer = new StringBuilder();
+        ReminderDataModel reminderDataModel;
 
         while (cursor.moveToNext()) {
             reminderDataModel= new ReminderDataModel();
@@ -287,6 +287,7 @@ public class ShowAllRemsActivity extends AppCompatActivity {
         }
 
         db.close();
+        cursor.close();
         return data;
     }
 

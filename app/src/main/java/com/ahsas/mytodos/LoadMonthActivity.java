@@ -45,7 +45,7 @@ public class LoadMonthActivity extends AppCompatActivity {
     private static final int NOTIFICATION_ID = 777;
 
     private String[] mMonths;
-    List<ReminderDataModel> dataModelArray = new ArrayList<ReminderDataModel>();
+    List<ReminderDataModel> dataModelArray = new ArrayList<>();
     private static String TAG = "debugInformation";
 
 
@@ -78,7 +78,7 @@ public class LoadMonthActivity extends AppCompatActivity {
         //sendNotification();
 
         Log.d(TAG, "onCreate");
-        Toast.makeText(this,"test toast", Toast.LENGTH_LONG);
+        //Toast.makeText(this,"test toast", Toast.LENGTH_LONG).show();
 
         if (savedInstanceState !=  null){
             mMonthToShow = savedInstanceState.getInt("month_to_show");
@@ -86,12 +86,12 @@ public class LoadMonthActivity extends AppCompatActivity {
             Log.d(TAG,"= not null");
         }
 
-        final FrameLayout mFlButtonPrevious = (FrameLayout) findViewById(R.id.frameLayoutPreviousMonth);
-        final FrameLayout mFlButtonNext = (FrameLayout) findViewById(R.id.frameLayoutNextMonth);
-        final ConstraintLayout mBaseLayout = (ConstraintLayout) findViewById(R.id.base_constraint_layout);
-        final Button mShowAllButton = (Button) findViewById(R.id.show_all_button);
-        final Button mShowActiveButton = (Button) findViewById(R.id.show_not_done_button);
-        final Button mShowClosedButton = (Button) findViewById(R.id.show_closed_button);
+        final FrameLayout mFlButtonPrevious = findViewById(R.id.frameLayoutPreviousMonth);
+        final FrameLayout mFlButtonNext = findViewById(R.id.frameLayoutNextMonth);
+        final ConstraintLayout mBaseLayout = findViewById(R.id.base_constraint_layout);
+        final Button mShowAllButton = findViewById(R.id.show_all_button);
+        final Button mShowActiveButton = findViewById(R.id.show_not_done_button);
+        final Button mShowClosedButton = findViewById(R.id.show_closed_button);
 
         mShowAllButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -141,7 +141,7 @@ public class LoadMonthActivity extends AppCompatActivity {
             public void onClick(View v) {
                 previousMonth();
                 //Change temporary style
-                final TextView mTextViewPreviousButton = (TextView) findViewById(R.id.textViewPreviousMonth);
+                final TextView mTextViewPreviousButton = findViewById(R.id.textViewPreviousMonth);
                 mTextViewPreviousButton.setBackgroundColor(ContextCompat.getColor(getBaseContext(), R.color.colorButtonBackgroundOnClick));
 
                 final Handler handler = new Handler();
@@ -161,7 +161,7 @@ public class LoadMonthActivity extends AppCompatActivity {
             public void onClick(View v) {
                 nextMonth();
                 //Change temporary style
-                final TextView mTextViewNextButton = (TextView) findViewById(R.id.textViewNextMonth);
+                final TextView mTextViewNextButton = findViewById(R.id.textViewNextMonth);
                 mTextViewNextButton.setBackgroundColor(ContextCompat.getColor(getBaseContext(), R.color.colorButtonBackgroundOnClick));
 
                 final Handler handler = new Handler();
@@ -202,7 +202,7 @@ public class LoadMonthActivity extends AppCompatActivity {
 
     public void reloadNewMonth(){
         Log.d(TAG, "reloadNewMonth");
-        TextView mTextViewCurrentMonth = (TextView) findViewById(R.id.textViewCurrentMonth);
+        TextView mTextViewCurrentMonth = findViewById(R.id.textViewCurrentMonth);
         mTextViewCurrentMonth.setText(mMonths[mMonthToShow]);
         drawSquares();
     }
@@ -267,7 +267,7 @@ public class LoadMonthActivity extends AppCompatActivity {
 
         mMonthToShow = mMainMonth;
         mYearToShow = mMainYear;
-        TextView mTextViewCurrentMonth = (TextView) findViewById(R.id.textViewCurrentMonth);
+        TextView mTextViewCurrentMonth = findViewById(R.id.textViewCurrentMonth);
         mTextViewCurrentMonth.setText(mMonths[mMonthToShow]);
 
         drawSquares();
@@ -331,7 +331,7 @@ public class LoadMonthActivity extends AppCompatActivity {
 
     public int getReminderCount(int dayNumber){
         int count = 0;
-        int i = 0;
+        int i;
         String mDate = String.valueOf(mYearToShow)+"/"+String.valueOf(mMonthToShow+1)+"/"+String.valueOf(dayNumber);
         if (!dataModelArray.isEmpty()){
             for (i=0; i<dataModelArray.size(); i++){
@@ -380,8 +380,8 @@ public class LoadMonthActivity extends AppCompatActivity {
 
         Cursor cursor = db.rawQuery("SELECT * FROM " + ReminderContract.ReminderTable.TABLE_NAME + ";", null);
 
-        StringBuffer buffer = new StringBuffer();
-        ReminderDataModel reminderDataModel = null;
+        StringBuilder buffer = new StringBuilder();
+        ReminderDataModel reminderDataModel;
 
         while (cursor.moveToNext()) {
             reminderDataModel= new ReminderDataModel();
@@ -407,109 +407,110 @@ public class LoadMonthActivity extends AppCompatActivity {
         }
 
         db.close();
+        cursor.close();
         return data;
     }
 
 
     public void loadImageViews(){
-        mSquares[1] = (TextView) findViewById(R.id.TextViewSquare1);
-        mSquares[2] = (TextView) findViewById(R.id.TextViewSquare2);
-        mSquares[3] = (TextView) findViewById(R.id.TextViewSquare3);
-        mSquares[4] = (TextView) findViewById(R.id.TextViewSquare4);
-        mSquares[5] = (TextView) findViewById(R.id.TextViewSquare5);
-        mSquares[6] = (TextView) findViewById(R.id.TextViewSquare6);
-        mSquares[7] = (TextView) findViewById(R.id.TextViewSquare7);
+        mSquares[1] = findViewById(R.id.TextViewSquare1);
+        mSquares[2] = findViewById(R.id.TextViewSquare2);
+        mSquares[3] = findViewById(R.id.TextViewSquare3);
+        mSquares[4] = findViewById(R.id.TextViewSquare4);
+        mSquares[5] = findViewById(R.id.TextViewSquare5);
+        mSquares[6] = findViewById(R.id.TextViewSquare6);
+        mSquares[7] = findViewById(R.id.TextViewSquare7);
 
-        mSquares[8] = (TextView) findViewById(R.id.TextViewSquare8);
-        mSquares[9] = (TextView) findViewById(R.id.TextViewSquare9);
-        mSquares[10] = (TextView) findViewById(R.id.TextViewSquare10);
-        mSquares[11] = (TextView) findViewById(R.id.TextViewSquare11);
-        mSquares[12] = (TextView) findViewById(R.id.TextViewSquare12);
-        mSquares[13] = (TextView) findViewById(R.id.TextViewSquare13);
-        mSquares[14] = (TextView) findViewById(R.id.TextViewSquare14);
+        mSquares[8] = findViewById(R.id.TextViewSquare8);
+        mSquares[9] = findViewById(R.id.TextViewSquare9);
+        mSquares[10] = findViewById(R.id.TextViewSquare10);
+        mSquares[11] = findViewById(R.id.TextViewSquare11);
+        mSquares[12] = findViewById(R.id.TextViewSquare12);
+        mSquares[13] = findViewById(R.id.TextViewSquare13);
+        mSquares[14] = findViewById(R.id.TextViewSquare14);
 
-        mSquares[15] = (TextView) findViewById(R.id.TextViewSquare15);
-        mSquares[16] = (TextView) findViewById(R.id.TextViewSquare16);
-        mSquares[17] = (TextView) findViewById(R.id.TextViewSquare17);
-        mSquares[18] = (TextView) findViewById(R.id.TextViewSquare18);
-        mSquares[19] = (TextView) findViewById(R.id.TextViewSquare19);
-        mSquares[20] = (TextView) findViewById(R.id.TextViewSquare20);
-        mSquares[21] = (TextView) findViewById(R.id.TextViewSquare21);
+        mSquares[15] = findViewById(R.id.TextViewSquare15);
+        mSquares[16] = findViewById(R.id.TextViewSquare16);
+        mSquares[17] = findViewById(R.id.TextViewSquare17);
+        mSquares[18] = findViewById(R.id.TextViewSquare18);
+        mSquares[19] = findViewById(R.id.TextViewSquare19);
+        mSquares[20] = findViewById(R.id.TextViewSquare20);
+        mSquares[21] = findViewById(R.id.TextViewSquare21);
 
-        mSquares[22] = (TextView) findViewById(R.id.TextViewSquare22);
-        mSquares[23] = (TextView) findViewById(R.id.TextViewSquare23);
-        mSquares[24] = (TextView) findViewById(R.id.TextViewSquare24);
-        mSquares[25] = (TextView) findViewById(R.id.TextViewSquare25);
-        mSquares[26] = (TextView) findViewById(R.id.TextViewSquare26);
-        mSquares[27] = (TextView) findViewById(R.id.TextViewSquare27);
-        mSquares[28] = (TextView) findViewById(R.id.TextViewSquare28);
+        mSquares[22] = findViewById(R.id.TextViewSquare22);
+        mSquares[23] = findViewById(R.id.TextViewSquare23);
+        mSquares[24] = findViewById(R.id.TextViewSquare24);
+        mSquares[25] = findViewById(R.id.TextViewSquare25);
+        mSquares[26] = findViewById(R.id.TextViewSquare26);
+        mSquares[27] = findViewById(R.id.TextViewSquare27);
+        mSquares[28] = findViewById(R.id.TextViewSquare28);
 
-        mSquares[29] = (TextView) findViewById(R.id.TextViewSquare29);
-        mSquares[30] = (TextView) findViewById(R.id.TextViewSquare30);
-        mSquares[31] = (TextView) findViewById(R.id.TextViewSquare31);
-        mSquares[32] = (TextView) findViewById(R.id.TextViewSquare32);
-        mSquares[33] = (TextView) findViewById(R.id.TextViewSquare33);
-        mSquares[34] = (TextView) findViewById(R.id.TextViewSquare34);
-        mSquares[35] = (TextView) findViewById(R.id.TextViewSquare35);
+        mSquares[29] = findViewById(R.id.TextViewSquare29);
+        mSquares[30] = findViewById(R.id.TextViewSquare30);
+        mSquares[31] = findViewById(R.id.TextViewSquare31);
+        mSquares[32] = findViewById(R.id.TextViewSquare32);
+        mSquares[33] = findViewById(R.id.TextViewSquare33);
+        mSquares[34] = findViewById(R.id.TextViewSquare34);
+        mSquares[35] = findViewById(R.id.TextViewSquare35);
 
-        mSquares[36] = (TextView) findViewById(R.id.TextViewSquare36);
-        mSquares[37] = (TextView) findViewById(R.id.TextViewSquare37);
-        mSquares[38] = (TextView) findViewById(R.id.TextViewSquare38);
-        mSquares[39] = (TextView) findViewById(R.id.TextViewSquare39);
-        mSquares[40] = (TextView) findViewById(R.id.TextViewSquare40);
-        mSquares[41] = (TextView) findViewById(R.id.TextViewSquare41);
-        mSquares[42] = (TextView) findViewById(R.id.TextViewSquare42);
+        mSquares[36] = findViewById(R.id.TextViewSquare36);
+        mSquares[37] = findViewById(R.id.TextViewSquare37);
+        mSquares[38] = findViewById(R.id.TextViewSquare38);
+        mSquares[39] = findViewById(R.id.TextViewSquare39);
+        mSquares[40] = findViewById(R.id.TextViewSquare40);
+        mSquares[41] = findViewById(R.id.TextViewSquare41);
+        mSquares[42] = findViewById(R.id.TextViewSquare42);
 
     }
 
     public void loadCountViews(){
-        mRemCounts[1] = (TextView) findViewById(R.id.TextViewSquare1_counter);
-        mRemCounts[2] = (TextView) findViewById(R.id.TextViewSquare2_counter);
-        mRemCounts[3] = (TextView) findViewById(R.id.TextViewSquare3_counter);
-        mRemCounts[4] = (TextView) findViewById(R.id.TextViewSquare4_counter);
-        mRemCounts[5] = (TextView) findViewById(R.id.TextViewSquare5_counter);
-        mRemCounts[6] = (TextView) findViewById(R.id.TextViewSquare6_counter);
-        mRemCounts[7] = (TextView) findViewById(R.id.TextViewSquare7_counter);
+        mRemCounts[1] = findViewById(R.id.TextViewSquare1_counter);
+        mRemCounts[2] = findViewById(R.id.TextViewSquare2_counter);
+        mRemCounts[3] = findViewById(R.id.TextViewSquare3_counter);
+        mRemCounts[4] = findViewById(R.id.TextViewSquare4_counter);
+        mRemCounts[5] = findViewById(R.id.TextViewSquare5_counter);
+        mRemCounts[6] = findViewById(R.id.TextViewSquare6_counter);
+        mRemCounts[7] = findViewById(R.id.TextViewSquare7_counter);
 
-        mRemCounts[8] = (TextView) findViewById(R.id.TextViewSquare8_counter);
-        mRemCounts[9] = (TextView) findViewById(R.id.TextViewSquare9_counter);
-        mRemCounts[10] = (TextView) findViewById(R.id.TextViewSquare10_counter);
-        mRemCounts[11] = (TextView) findViewById(R.id.TextViewSquare11_counter);
-        mRemCounts[12] = (TextView) findViewById(R.id.TextViewSquare12_counter);
-        mRemCounts[13] = (TextView) findViewById(R.id.TextViewSquare13_counter);
-        mRemCounts[14] = (TextView) findViewById(R.id.TextViewSquare14_counter);
+        mRemCounts[8] = findViewById(R.id.TextViewSquare8_counter);
+        mRemCounts[9] = findViewById(R.id.TextViewSquare9_counter);
+        mRemCounts[10] = findViewById(R.id.TextViewSquare10_counter);
+        mRemCounts[11] = findViewById(R.id.TextViewSquare11_counter);
+        mRemCounts[12] = findViewById(R.id.TextViewSquare12_counter);
+        mRemCounts[13] = findViewById(R.id.TextViewSquare13_counter);
+        mRemCounts[14] = findViewById(R.id.TextViewSquare14_counter);
 
-        mRemCounts[15] = (TextView) findViewById(R.id.TextViewSquare15_counter);
-        mRemCounts[16] = (TextView) findViewById(R.id.TextViewSquare16_counter);
-        mRemCounts[17] = (TextView) findViewById(R.id.TextViewSquare17_counter);
-        mRemCounts[18] = (TextView) findViewById(R.id.TextViewSquare18_counter);
-        mRemCounts[19] = (TextView) findViewById(R.id.TextViewSquare19_counter);
-        mRemCounts[20] = (TextView) findViewById(R.id.TextViewSquare20_counter);
-        mRemCounts[21] = (TextView) findViewById(R.id.TextViewSquare21_counter);
+        mRemCounts[15] = findViewById(R.id.TextViewSquare15_counter);
+        mRemCounts[16] = findViewById(R.id.TextViewSquare16_counter);
+        mRemCounts[17] = findViewById(R.id.TextViewSquare17_counter);
+        mRemCounts[18] = findViewById(R.id.TextViewSquare18_counter);
+        mRemCounts[19] = findViewById(R.id.TextViewSquare19_counter);
+        mRemCounts[20] = findViewById(R.id.TextViewSquare20_counter);
+        mRemCounts[21] = findViewById(R.id.TextViewSquare21_counter);
 
-        mRemCounts[22] = (TextView) findViewById(R.id.TextViewSquare22_counter);
-        mRemCounts[23] = (TextView) findViewById(R.id.TextViewSquare23_counter);
-        mRemCounts[24] = (TextView) findViewById(R.id.TextViewSquare24_counter);
-        mRemCounts[25] = (TextView) findViewById(R.id.TextViewSquare25_counter);
-        mRemCounts[26] = (TextView) findViewById(R.id.TextViewSquare26_counter);
-        mRemCounts[27] = (TextView) findViewById(R.id.TextViewSquare27_counter);
-        mRemCounts[28] = (TextView) findViewById(R.id.TextViewSquare28_counter);
+        mRemCounts[22] = findViewById(R.id.TextViewSquare22_counter);
+        mRemCounts[23] = findViewById(R.id.TextViewSquare23_counter);
+        mRemCounts[24] = findViewById(R.id.TextViewSquare24_counter);
+        mRemCounts[25] = findViewById(R.id.TextViewSquare25_counter);
+        mRemCounts[26] = findViewById(R.id.TextViewSquare26_counter);
+        mRemCounts[27] = findViewById(R.id.TextViewSquare27_counter);
+        mRemCounts[28] = findViewById(R.id.TextViewSquare28_counter);
 
-        mRemCounts[29] = (TextView) findViewById(R.id.TextViewSquare29_counter);
-        mRemCounts[30] = (TextView) findViewById(R.id.TextViewSquare30_counter);
-        mRemCounts[31] = (TextView) findViewById(R.id.TextViewSquare31_counter);
-        mRemCounts[32] = (TextView) findViewById(R.id.TextViewSquare32_counter);
-        mRemCounts[33] = (TextView) findViewById(R.id.TextViewSquare33_counter);
-        mRemCounts[34] = (TextView) findViewById(R.id.TextViewSquare34_counter);
-        mRemCounts[35] = (TextView) findViewById(R.id.TextViewSquare35_counter);
+        mRemCounts[29] = findViewById(R.id.TextViewSquare29_counter);
+        mRemCounts[30] = findViewById(R.id.TextViewSquare30_counter);
+        mRemCounts[31] = findViewById(R.id.TextViewSquare31_counter);
+        mRemCounts[32] = findViewById(R.id.TextViewSquare32_counter);
+        mRemCounts[33] = findViewById(R.id.TextViewSquare33_counter);
+        mRemCounts[34] = findViewById(R.id.TextViewSquare34_counter);
+        mRemCounts[35] = findViewById(R.id.TextViewSquare35_counter);
 
-        mRemCounts[36] = (TextView) findViewById(R.id.TextViewSquare36_counter);
-        mRemCounts[37] = (TextView) findViewById(R.id.TextViewSquare37_counter);
-        mRemCounts[38] = (TextView) findViewById(R.id.TextViewSquare38_counter);
-        mRemCounts[39] = (TextView) findViewById(R.id.TextViewSquare39_counter);
-        mRemCounts[40] = (TextView) findViewById(R.id.TextViewSquare40_counter);
-        mRemCounts[41] = (TextView) findViewById(R.id.TextViewSquare41_counter);
-        mRemCounts[42] = (TextView) findViewById(R.id.TextViewSquare42_counter);
+        mRemCounts[36] = findViewById(R.id.TextViewSquare36_counter);
+        mRemCounts[37] = findViewById(R.id.TextViewSquare37_counter);
+        mRemCounts[38] = findViewById(R.id.TextViewSquare38_counter);
+        mRemCounts[39] = findViewById(R.id.TextViewSquare39_counter);
+        mRemCounts[40] = findViewById(R.id.TextViewSquare40_counter);
+        mRemCounts[41] = findViewById(R.id.TextViewSquare41_counter);
+        mRemCounts[42] = findViewById(R.id.TextViewSquare42_counter);
 
     }
 }
