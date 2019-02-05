@@ -43,6 +43,7 @@ public class ShowAllRemsActivity extends AppCompatActivity {
     private String mSortingStatus = "";
     private String mSortingDate = "";
 
+    RecyclerAdapter recycler;
     List<ReminderDataModel> dataModelArray = new ArrayList<>();
 
     @Override
@@ -121,9 +122,9 @@ public class ShowAllRemsActivity extends AppCompatActivity {
     }
 
     public void setRecyclerView(){
-        final RecyclerView recyclerView = findViewById(R.id.show_all_recyclerView);
+        RecyclerView recyclerView = findViewById(R.id.show_all_recyclerView);
         dataModelArray = getRemsData();
-        final RecyclerAdapter recycler = new RecyclerAdapter(dataModelArray);
+        recycler = new RecyclerAdapter(getBaseContext(), dataModelArray);
 
         RecyclerView.LayoutManager reLayoutManager =new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(reLayoutManager);

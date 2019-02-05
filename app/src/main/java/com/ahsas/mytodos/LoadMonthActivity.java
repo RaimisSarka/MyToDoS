@@ -54,6 +54,7 @@ public class LoadMonthActivity extends AppCompatActivity {
     public int mMainMonth;
     public int mMainYear;
     public int mMainDay;
+    public int mMainDayOfYear;
 
     public int mMonthToShow;
     public int mYearToShow;
@@ -261,7 +262,8 @@ public class LoadMonthActivity extends AppCompatActivity {
         mDayOfWeekToday = calendarToday.get(Calendar.DAY_OF_WEEK);
         mMainMonth = calendarToday.get(Calendar.MONTH);
         mMainYear = calendarToday.get(Calendar.YEAR);
-        mMainDay = calendarToday.get(Calendar.DAY_OF_YEAR);
+        mMainDay = calendarToday.get(Calendar.DAY_OF_MONTH);
+        mMainDayOfYear = calendarToday.get(Calendar.DAY_OF_YEAR);
         String[] mDayNamesArray = getResources().getStringArray(R.array.weekdays_name);
         mMonths = getResources().getStringArray(R.array.months_names);
 

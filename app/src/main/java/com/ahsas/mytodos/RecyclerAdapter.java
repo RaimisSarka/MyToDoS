@@ -14,8 +14,10 @@ import java.util.List;
 public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyHolder> {
 
     List<ReminderDataModel> dataModelArrayList;
+    Context context;
 
-    public RecyclerAdapter(List<ReminderDataModel> dataModelArrayList){
+    public RecyclerAdapter(Context context, List<ReminderDataModel> dataModelArrayList){
+        this.context = context;
         this.dataModelArrayList = dataModelArrayList;
     }
 
