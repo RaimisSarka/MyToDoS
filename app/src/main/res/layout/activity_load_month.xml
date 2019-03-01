@@ -20,6 +20,7 @@
         android:contentDescription="@string/show_closed_rems_button"
         android:text="@string/show_closed_rems_button"
         android:textColor="@color/colorButtonTextColor"
+        android:visibility="gone"
         app:layout_constraintEnd_toStartOf="@+id/show_all_button"
         app:layout_constraintStart_toEndOf="@+id/show_not_done_button"
         app:layout_constraintTop_toTopOf="@+id/show_not_done_button"
@@ -27,15 +28,18 @@
 
     <Button
         android:id="@+id/show_not_done_button"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
         android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
         android:background="@drawable/button_layout_not_pressed"
         android:contentDescription="@string/show_active_rems_button"
         android:text="@string/show_active_rems_button"
         android:textColor="@color/colorButtonTextColor"
+        app:layout_constraintEnd_toEndOf="@+id/constraintLayout"
         app:layout_constraintStart_toStartOf="@+id/constraintLayout"
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
         tools:text="@string/show_active_rems_button" />
@@ -50,6 +54,7 @@
         android:contentDescription="@string/show_all_rems_button"
         android:text="@string/show_all_rems_button"
         android:textColor="@color/colorButtonTextColor"
+        android:visibility="gone"
         app:layout_constraintEnd_toEndOf="@+id/constraintLayout"
         app:layout_constraintTop_toTopOf="@+id/show_closed_button"
         tools:text="@string/show_all_rems_button" />
